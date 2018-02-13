@@ -44,10 +44,20 @@ textarea {
 
 .cipher_logo {
   position: absolute;
-  margin-left: 49px;
-  margin-top: 20px;
+  margin-left: 30px;
+  top: 20px;
   height: 40px;
   width: 40px;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+
+@media all and (min-width: 520px) {
+  .cipher_logo {
+    margin-left: 49px;
+  }
 }
 
 .page-container {
@@ -57,6 +67,10 @@ textarea {
   right:0;
   overflow:hidden;
   min-height: auto;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
 }
 
 .inner-container {
@@ -501,6 +515,55 @@ span.footer-text {
     font-size: 14px;
   }
 }
+
+
+/*css specific to the fadein transition*/
+
+@keyframes fadein {
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+      margin-top: -50px;
+
+  }
+  to {
+      opacity: 1;
+      margin-top: 0;
+  }
+}
+
 
 /*css specific to gradient-bg*/
 
