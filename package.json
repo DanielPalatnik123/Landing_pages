@@ -1,0 +1,31 @@
+{
+  "name": "landing_pages",
+  "version": "1.0.0",
+  "description": "landing page templates for Cipherhealth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielPalatnik123/Landing_pages.git"
+  },
+  "author": "Daniel Palatnik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielPalatnik123/Landing_pages/issues"
+  },
+  "homepage": "https://github.com/DanielPalatnik123/Landing_pages#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
+    "run-sequence": "^2.2.1"
+  }
+}

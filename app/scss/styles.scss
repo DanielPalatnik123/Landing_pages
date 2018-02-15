@@ -1,0 +1,802 @@
+body {
+  font-family: 'lato', sans-serif;
+  display: grid;
+  display: -ms-grid;
+}
+
+h1, h2 {
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  margin: 0 0 40px;
+  text-transform: uppercase;
+  font-size: 24px;
+
+  @media all and (min-width: 520px) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 14px;
+
+  @media all and (min-width: 520px) {
+    font-size: 24px;
+  }
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+input,
+select,
+textarea {
+  font-family: 'lato', sans-serif;
+}
+
+.cipher_logo {
+  position: absolute;
+  margin-left: 30px;
+  top: 20px;
+  height: 40px;
+  width: 40px;
+  animation: fadein 2s;
+}
+
+@media all and (min-width: 520px) {
+  .cipher_logo {
+    margin-left: 49px;
+  }
+}
+
+.page-container {
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  min-height: auto;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+
+.inner-container {
+  padding: 30px;
+  border-width: 2px;
+  border-style: solid;
+  margin: 80px 30px 25px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-rows: 100% 100%;
+  -ms-grid-rows: 100% 100%;
+  min-height: 70vh;
+
+  @media all and (min-width: 520px) {
+    padding: 50px;
+    margin: 80px 50px 25px;
+  }
+
+  @media all and (min-width: 768px) {
+    grid-template-columns: 50% 50%;
+    -ms-grid-columns: 50% 50%;
+  }
+}
+
+
+/*css specific to page type (top title)*/
+
+.title-block {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  text-align: center;
+  z-index: 9;
+
+  @media all and (min-width: 520px) {
+    margin-top: 46px;
+  }
+
+  .title-background {
+    justify-self: center;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0 20px;
+    font-weight: 700;
+    z-index: 1;
+  }
+}
+
+
+/*css specific to content*/
+
+.content-block {
+  -ms-grid-row: 1;
+
+  @media all and (min-width: 768px) {
+    margin-right: 25px;
+    -ms-grid-column: 1;
+  }
+}
+
+.first-content-block {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 100%;
+  -ms-grid-columns: 100%;
+  grid-template-rows: 50% 50%;
+  -ms-grid-rows: 50% 50%;
+  grid-template-areas:
+    "firstText"
+    "sideImage";
+
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    grid-template-columns: 50% 50%;
+    -ms-grid-columns: 50% 50%;
+    grid-template-rows: 100%;
+    -ms-grid-rows: 100%;
+    grid-template-areas:
+      "sideImage firstText";
+  }
+
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+    grid-template-rows: 50% 50%;
+    -ms-grid-rows: 50% 50%;
+    grid-template-areas:
+      "firstText"
+      "sideImage";
+  }
+
+  @media all and (min-width: 992px) {
+    grid-template-columns: 50% 50%;
+    -ms-grid-columns: 50% 50%;
+    grid-template-rows: 100%;
+    -ms-grid-rows: 100%;
+    grid-template-areas:
+      "sideImage firstText";
+  }
+
+  .side-image {
+    grid-area: sideImage;
+    -ms-grid-row: 2;
+    margin-right: 0;
+    height: 300px;
+    margin-left: 0;
+    background-size: cover;
+    position: relative;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      margin-right: 25px;
+      height: auto;
+      margin-left: -102px;
+      position: relative;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      -ms-grid-row: 2;
+      margin-right: 0;
+      height: 300px;
+      margin-left: 0;
+    }
+
+    @media all and (min-width: 992px) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      margin-right: 25px;
+      margin-left: -102px;
+      height: auto;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: -3px;
+      height: 0;
+      width: 100px;
+
+      @media all and (min-width: 520px) and (max-width: 767px) {
+        height: 46px;
+      }
+
+      @media all and (min-width: 768px) and (max-width: 991px) {
+        height: 0;
+      }
+
+      @media all and (min-width: 992px) {
+        height: 46px;
+      }
+    }
+
+    &:before {
+      top: -46px;
+    }
+
+    &:after {
+      bottom: -46px;
+    }
+  }
+
+  p {
+    grid-area: firstText;
+    -ms-grid-row: 1;
+    margin-left: 0;
+    margin-bottom: 40px;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      margin-left: 25px;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      margin-left: 0;
+      margin-bottom: 40px;
+      -ms-grid-row: 1;
+    }
+
+    @media all and (min-width: 992px) {
+      margin-left: 25px;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+  }
+}
+
+.second-content-block {
+  margin-top: 40px;
+}
+
+/*css specific to forms*/
+
+.form-block {
+  -ms-grid-row: 2;
+
+  @media all and (min-width: 768px) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    margin-left: 25px;
+  }
+}
+
+form.form {
+  position: relative;
+  overflow: hidden;
+  margin-top: 50px;
+
+  @media all and (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  .form-container {
+    width: 42vw;
+    padding-bottom: 10px;
+
+    @media all and (max-width: 767px) {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  p label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding-top: 2px;
+    padding-bottom: 5px;
+  }
+
+  p input.text,
+  p textarea.standard,
+  p select {
+    width: 175%;
+    font-size: 16px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.1);
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    padding: 10px 18px;
+
+    @media all and (min-width: 768px) {
+      width: 98%;
+    }
+  }
+
+  p select::-ms-expand {
+    display: none;
+  }
+
+  .pd-checkbox .value span {
+    display: block;
+    overflow: hidden;
+  }
+
+  p input[type="checkbox"] {
+    display: none;
+    margin: 6px;
+
+    & + label {
+      display: inline-block;
+      text-indent: 31px;
+      height: 20px;
+      margin: 9px 4px 0 0;
+      vertical-align: middle;
+      cursor: pointer;
+      width: 23px;
+      white-space: nowrap;
+      text-transform: capitalize;
+    }
+  }
+
+  p.submit {
+    margin-top: 12px;
+    width: auto;
+    display: inline-block;
+    background: #000;
+    border-radius: 41px;
+    height: auto;
+
+    input {
+      padding: 10px 20px;
+      white-space: normal;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      -moz-border-radius: 40px;
+      -webkit-border-radius: 40px;
+      border-radius: 40px;
+      cursor: pointer;
+      border: 0;
+      -webkit-transition: background-color .5s ease;
+      -webkit-appearance: none;
+      transition: all .5s ease;
+    }
+  }
+
+  p .select_arrow {
+    display: none;
+  }
+
+  p.pd-select .select_arrow {
+    display: block;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-image: url('https://cipherhealth.com/wp-content/uploads/2017/04/arrow_down.svg');
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 3px;
+
+    @media all and (min-width: 768px) {
+      bottom: auto;
+      right: 0px;
+      margin-top: 22px;
+    }
+  }
+}
+
+
+/*css specific to the footer*/
+
+span.footer-text {
+  text-align: center;
+  padding: 0 0 25px;
+  justify-self: center;
+  font-size: 12px;
+  width: 100%;
+  bottom: 0;
+  display: inline-block;
+
+  @media all and (min-width: 520px) {
+    font-size: 14px;
+  }
+}
+
+
+/*css specific to the fadein transition*/
+
+@keyframes fadein {
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+      margin-top: -50px;
+  }
+  to {
+      opacity:1;
+      margin-top: 0;
+  }
+}
+
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+      margin-top: -50px;
+
+  }
+  to {
+      opacity: 1;
+      margin-top: 0;
+  }
+}
+
+
+/*css specific to gradient-bg*/
+
+body.gradient-bg {
+  background: #00b2d6; /* Old browsers */
+  background: -moz-linear-gradient(left, #00b2d6 0%, #00b7ac 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #00b2d6 0%,#00b7ac 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #00b2d6 0%,#00b7ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='#00b7ac',GradientType=1 ); /* IE6-9 */
+
+  .cipher_logo {
+    background-image: url('https://cipherhealth.com/wp-content/uploads/2017/03/cipherlogo.svg');
+  }
+
+  .page-container {
+    background-image:url('../images/bg.svg');
+    background-size: cover;
+  }
+
+  .inner-container {
+    border-color: #ffffff;
+  }
+
+  .page-container h1,
+  .page-container h2,
+  .page-container p,
+  span {
+    color: #ffffff;
+  }
+
+  .title-block span {
+    background: #01b3cd; /* Old browsers */
+    background: -moz-linear-gradient(left, #01b3cd 0%, #01b6b6 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #01b3cd 0%,#01b6b6 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #01b3cd 0%,#01b6b6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b3cd', endColorstr='#01b6b6',GradientType=1 ); /* IE6-9 */
+  }
+
+  .side-image {
+    background-image: url('../images/grad_hospital_img.jpg');
+
+    &:before {
+      background: #00b2d6; /* Old browsers */
+      background: -moz-linear-gradient(left, #00b2d6 60%, transparent 60%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #00b2d6 60%,transparent 60%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #00b2d6 60%,transparent 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
+    }
+
+    &:after {
+      background: #00b2d6; /* Old browsers */
+      background: -moz-linear-gradient(left, #00b2d6 60%, transparent 60%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #00b2d6 60%,transparent 60%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #00b2d6 60%,transparent 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
+    }
+  }
+
+  form.form p {
+    input.text,
+    textarea.standard,
+    select {
+      color: #ffffff;
+    }
+
+    select option{
+      color: rgba(0,0,0,0.8);
+    }
+
+    input[type="checkbox"] + label {
+      background: url('https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg') -26px -22px no-repeat;
+      background-size: 210%;
+    }
+
+    input[type="checkbox"]:checked + label {
+      background: url('https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg') -2.6px -23px no-repeat;
+      background-size: 210%;
+    }
+
+    &.submit input {
+      background-color: #ffffff;
+      color: #03494F;
+    }
+
+    &.submit:hover input {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+
+/*css specific to white-bg*/
+
+body.white-bg {
+  background: #ffffff;
+
+  .cipher_logo {
+    background-image: url('https://cipherhealth.com/wp-content/uploads/2018/02/cipherlogo_cfoam.svg');
+  }
+
+  .page-container h1,
+  .page-container h2,
+  .page-container p,
+  span {
+    color: rgba(0,0,0,0.7);
+  }
+
+  .title-block {
+    span {
+      background: #ffffff;
+    }
+
+    h2 {
+      background: -webkit-linear-gradient(left, #18B3A5, #396C99);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .inner-container {
+    border-left-color: #18B3A5;
+    border-right-color: #396C99;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      height: 2px;
+      position: absolute;
+      left: -0.5%;
+
+      @media all and (min-width: 520px) and (max-width: 767px) {
+        width: 100.5%;
+        left: -0.3%;
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1350px) {
+        width: 100.3%;
+        left: -0.2%;
+      }
+
+      @media all and (min-width: 1350px) {
+        width: 100.2%;
+        left: -0.1%;
+      }
+    }
+
+    &:before {
+      width: 101%;
+      top: -2px;
+      background: #18B3A5; /* Old browsers */
+      background: -moz-linear-gradient(left, #18B3A5 , #396C99 ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #18B3A5 ,#396C99 ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #18B3A5 ,#396C99 ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18B3A5', endColorstr='#396C99',GradientType=1 ); /* IE6-9 */
+    }
+
+    &:after {
+      width: 101%;
+      bottom: -2px;
+      background: #396C99; /* Old browsers */
+      background: -moz-linear-gradient(right, #396C99 , #18B3A5 ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(right, #396C99 ,#18B3A5 ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to left, #396C99 ,#18B3A5 ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396C99', endColorstr='#18B3A5',GradientType=1 ); /* IE6-9 */
+    }
+
+    .side-image {
+      background-image: url('../images/grad_hospital_img.jpg');
+
+      &:before {
+        background: #ffffff;
+      }
+
+      &:after {
+        background: #ffffff;
+      }
+    }
+  }
+
+  form.form p {
+    input[type="checkbox"] + label {
+      background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -26px -22px no-repeat;
+      background-size: 210%;
+    }
+
+    input[type="checkbox"]:checked + label {
+      background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -2.6px 0px no-repeat;
+      background-size: 210%;
+    }
+
+    &.submit input {
+      background: #396C99; /* Old browsers */
+      background: -moz-linear-gradient(left, #18B3A5 , #396C99 ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #18B3A5 ,#396C99 ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #18B3A5 ,#396C99 ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18B3A5', endColorstr='#396C99',GradientType=1 ); /* IE6-9 */
+      color: #ffffff;
+      opacity: 1;
+    }
+
+    &.submit:hover input {
+      opacity: 0.8;
+    }
+  }
+}
+
+
+/*css specific to IE 10*/
+
+html[data-useragent*='MSIE 10.0'],
+html[data-useragent*='rv:11.0'] {
+
+  body {
+    margin: 0;
+  }
+
+  .title-block {
+    display: block;
+    margin: 60px 0;
+
+    @media all and (min-width: 520px) {
+      margin: 46px 0;
+    }
+  }
+
+  form.form p input[type="checkbox"] + label {
+    background: url('https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg') -26px -27px no-repeat;
+    background-size: 210%;
+  }
+
+  body.white-bg {
+    .title-block .title-background h2 {
+      color: #2d899e;
+    }
+
+    form.form p input[type="checkbox"]:checked + label {
+      background: url('https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg') -2.6px -5px no-repeat;
+      background-size: 210%;
+    }
+  }
+
+  body.gradient-bg {
+    .title-block .title-background h2 {
+      color: #ffffff;
+    }
+
+    form.form p input[type="checkbox"]:checked + label {
+      background: url('https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg') -2.6px -27px no-repeat;
+      background-size: 210%;
+    }
+  }
+}
+
+
+/*css specific to browsers that don't support grid css*/
+
+.page-container.noGrid {
+
+  .inner-container {
+    float: left;
+  }
+
+  .content-block {
+    margin-right: 0;
+  }
+
+  .side-image,
+  .first-content-block p,
+  .form-block,
+  .form-block .form-container,
+  form.form p select {
+    width: 100%;
+  }
+
+  .first-content-block {
+    p {
+      margin-left: 0;
+      float: left;
+      margin-bottom: 0;
+      margin-top: 40px;
+
+      @media all and (min-width: 768px) {
+        margin-left: 20px;
+      }
+
+      @media all and (min-width: 768px) and (max-width: 1200px) {
+        width: 58%;
+      }
+
+      @media all and (min-width: 1201px) {
+        width: 54%;
+      }
+    }
+
+    .side-image {
+      float: left;
+      min-height: 300px;
+      margin-left: 0;
+      margin-right: 0;
+
+      @media all and (min-width: 768px) {
+        width: 46%;
+        margin-left: -102px;
+        margin-right: 20px;
+      }
+
+      &:before,
+      &:after {
+        @media all and (min-width: 768px) {
+          height: 46px;
+        }
+      }
+    }
+
+
+
+  }
+
+  .second-content-block {
+    float: left;
+  }
+
+  .form-block {
+    float: left;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  form.form p.submit {
+    background: none;
+  }
+}
