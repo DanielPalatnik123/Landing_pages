@@ -9,7 +9,6 @@ h1, h2 {
 }
 
 h1 {
-  margin: 0 0 40px;
   text-transform: uppercase;
   font-size: 24px;
 
@@ -27,16 +26,48 @@ h2 {
   }
 }
 
+h4 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
 p {
   margin: 0;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 input,
 select,
 textarea {
   font-family: 'lato', sans-serif;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.page-container .highlight {
+  font-size: 28px;
+
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    font-size: 36px;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    font-size: 28px;
+  }
+
+  @media all and (min-width: 992px) {
+    font-size: 36px;
+  }
+
 }
 
 .cipher_logo {
@@ -46,13 +77,13 @@ textarea {
   height: 40px;
   width: 40px;
   animation: fadein 2s;
-}
 
-@media all and (min-width: 520px) {
-  .cipher_logo {
+  @media all and (min-width: 520px) {
     margin-left: 49px;
   }
 }
+
+/*css specific to containers*/
 
 .page-container {
   top:0;
@@ -62,33 +93,148 @@ textarea {
   overflow:hidden;
   min-height: auto;
   animation: fadein 2s;
-  -moz-animation: fadein 2s; /* Firefox */
-  -webkit-animation: fadein 2s; /* Safari and Chrome */
-  -o-animation: fadein 2s; /* Opera */
 }
 
 .inner-container {
   padding: 30px;
+  min-height: 70vh;
   border-width: 2px;
   border-style: solid;
   margin: 80px 30px 25px;
-  display: grid;
-  display: -ms-grid;
-  grid-template-rows: 100% 100%;
-  -ms-grid-rows: 100% 100%;
-  min-height: 70vh;
 
   @media all and (min-width: 520px) {
     padding: 50px;
     margin: 80px 50px 25px;
   }
+}
 
+.whole-content-block,
+.split-content-block {
+  margin-top: 40px;
+}
+
+.split-content-block {
+  display: grid;
+  display: -ms-grid;
+}
+
+/*css specific to containers - grid system*/
+
+.col-50-50,
+.col-60-40,
+.col-40-60 {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 100%;
+  -ms-grid-columns: 100%;
+  grid-template-rows: 50% 50%;
+  -ms-grid-rows: 50% 50%;
+}
+
+.col-50-50 {
   @media all and (min-width: 768px) {
     grid-template-columns: 50% 50%;
     -ms-grid-columns: 50% 50%;
   }
+
+  &.split-content-block {
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+    grid-template-rows: 50% 50%;
+    -ms-grid-rows: 50% 50%;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 50% 50%;
+      -ms-grid-columns: 50% 50%;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      grid-template-columns: 100%;
+      -ms-grid-columns: 100%;
+      grid-template-rows: 50% 50%;
+      -ms-grid-rows: 50% 50%;
+    }
+
+    @media all and (min-width: 992px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 50% 50%;
+      -ms-grid-columns: 50% 50%;
+    }
+  }
 }
 
+.col-60-40 {
+  @media all and (min-width: 768px) {
+    grid-template-columns: 60% 40%;
+    -ms-grid-columns: 60% 40%;
+  }
+
+  &.split-content-block {
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+    grid-template-rows: 60% 40%;
+    -ms-grid-rows: 60% 40%;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 60% 40%;
+      -ms-grid-columns: 60% 40%;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      grid-template-columns: 100%;
+      -ms-grid-columns: 100%;
+      grid-template-rows: 60% 40%;
+      -ms-grid-rows: 60% 40%;
+    }
+
+    @media all and (min-width: 992px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 60% 40%;
+      -ms-grid-columns: 60% 40%;
+    }
+  }
+}
+
+.col-40-60 {
+  @media all and (min-width: 768px) {
+    grid-template-columns: 40% 60%;
+    -ms-grid-columns: 40% 60%;
+  }
+
+  &.split-content-block {
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+    grid-template-rows: 40% 60%;
+    -ms-grid-rows: 40% 60%;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 40% 60%;
+      -ms-grid-columns: 40% 60%;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      grid-template-columns: 100%;
+      -ms-grid-columns: 100%;
+      grid-template-rows: 40% 60%;
+      -ms-grid-rows: 40% 60%;
+    }
+
+    @media all and (min-width: 992px) {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 40% 60%;
+      -ms-grid-columns: 40% 60%;
+    }
+  }
+}
 
 /*css specific to page type (top title)*/
 
@@ -103,6 +249,14 @@ textarea {
 
   @media all and (min-width: 520px) {
     margin-top: 46px;
+  }
+
+  h2 {
+    margin: 13px auto;
+
+    @media all and (min-width: 520px) {
+      margin: 20px auto;
+    }
   }
 
   .title-background {
@@ -127,137 +281,216 @@ textarea {
   }
 }
 
-.first-content-block {
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: 100%;
-  -ms-grid-columns: 100%;
-  grid-template-rows: 50% 50%;
-  -ms-grid-rows: 50% 50%;
-  grid-template-areas:
-    "firstText"
-    "sideImage";
+.split-image {
+  grid-area: sideImage;
+  -ms-grid-row: 2;
+  margin-right: 0;
+  height: 300px;
+  margin-left: 0;
+  background-size: cover;
+  position: relative;
 
   @media all and (min-width: 520px) and (max-width: 767px) {
-    grid-template-columns: 50% 50%;
-    -ms-grid-columns: 50% 50%;
-    grid-template-rows: 100%;
-    -ms-grid-rows: 100%;
-    grid-template-areas:
-      "sideImage firstText";
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    margin-right: 25px;
+    height: auto;
+    margin-left: -102px;
+    position: relative;
   }
 
   @media all and (min-width: 768px) and (max-width: 991px) {
-    grid-template-columns: 100%;
-    -ms-grid-columns: 100%;
-    grid-template-rows: 50% 50%;
-    -ms-grid-rows: 50% 50%;
-    grid-template-areas:
-      "firstText"
-      "sideImage";
-  }
-
-  @media all and (min-width: 992px) {
-    grid-template-columns: 50% 50%;
-    -ms-grid-columns: 50% 50%;
-    grid-template-rows: 100%;
-    -ms-grid-rows: 100%;
-    grid-template-areas:
-      "sideImage firstText";
-  }
-
-  .side-image {
-    grid-area: sideImage;
     -ms-grid-row: 2;
     margin-right: 0;
     height: 300px;
     margin-left: 0;
-    background-size: cover;
-    position: relative;
+  }
+
+  @media all and (min-width: 992px) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    margin-right: 25px;
+    margin-left: -102px;
+    height: auto;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: -3px;
+    height: 0;
+    width: 100px;
 
     @media all and (min-width: 520px) and (max-width: 767px) {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      margin-right: 25px;
-      height: auto;
-      margin-left: -102px;
-      position: relative;
+      height: 46px;
     }
 
     @media all and (min-width: 768px) and (max-width: 991px) {
-      -ms-grid-row: 2;
-      margin-right: 0;
-      height: 300px;
-      margin-left: 0;
+      height: 0;
     }
 
     @media all and (min-width: 992px) {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      margin-right: 25px;
-      margin-left: -102px;
-      height: auto;
-    }
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: -3px;
-      height: 0;
-      width: 100px;
-
-      @media all and (min-width: 520px) and (max-width: 767px) {
-        height: 46px;
-      }
-
-      @media all and (min-width: 768px) and (max-width: 991px) {
-        height: 0;
-      }
-
-      @media all and (min-width: 992px) {
-        height: 46px;
-      }
-    }
-
-    &:before {
-      top: -46px;
-    }
-
-    &:after {
-      bottom: -46px;
+      height: 46px;
     }
   }
 
-  p {
-    grid-area: firstText;
+  &:before {
+    top: -46px;
+  }
+
+  &:after {
+    bottom: -46px;
+  }
+}
+
+.split-text {
+  grid-area: firstText;
+  -ms-grid-row: 1;
+  margin-left: 0;
+  margin-bottom: 40px;
+
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    margin-left: 25px;
     -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+
+  @media all and (min-width: 768px) and (max-width: 991px) {
     margin-left: 0;
     margin-bottom: 40px;
+    -ms-grid-row: 1;
+  }
 
-    @media all and (min-width: 520px) and (max-width: 767px) {
-      margin-left: 25px;
-      -ms-grid-row: 1;
-      -ms-grid-column: 2;
+  @media all and (min-width: 992px) {
+    margin-left: 25px;
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+}
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin: 20px 0 40px;
+    display: grid;
+    align-items: center;
+
+    .bullet-image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 45px;
+      border-radius: 40px;
+
+      .counter-value {
+        display: none;
+      }
+
+      .counter-text {
+        font-size: 82px;
+        font-weight: 900;
+        padding-right: 6px;
+
+        @media all and (min-width: 520px) and (max-width: 767px) {
+          font-size: 96px;
+        }
+
+        @media all and (min-width: 768px) and (max-width: 991px) {
+          font-size: 82px;
+        }
+
+        @media all and (min-width: 992px) {
+          font-size: 96px;
+        }
+      }
+
+      .counter-symbol {
+        font-size: 16px;
+        font-weight: 900;
+        margin: 6px 0;
+
+        @media all and (min-width: 768px) {
+          margin: 18px 0 -30px -7px;
+        }
+      }
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
-      margin-left: 0;
-      margin-bottom: 40px;
-      -ms-grid-row: 1;
-    }
+    .bullet-text {
+      padding-left: 20px;
 
-    @media all and (min-width: 992px) {
-      margin-left: 25px;
-      -ms-grid-row: 1;
-      -ms-grid-column: 2;
+      h3 {
+        padding-bottom: 10px;
+      }
     }
   }
 }
 
-.second-content-block {
-  margin-top: 40px;
+/*css specific to page specific content*/
+
+.image-paragraph {
+  .split-content-block {
+    grid-template-areas:
+      "firstText"
+      "sideImage";
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      grid-template-areas:
+        "sideImage firstText";
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      grid-template-areas:
+        "firstText"
+        "sideImage";
+    }
+
+    @media all and (min-width: 992px) {
+      grid-template-areas:
+        "sideImage firstText";
+    }
+  }
+}
+
+.paragraph-bullets-icon {
+  .bullet-list {
+    li {
+      grid-template-columns: 80px auto;
+
+      .bullet-image {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+.paragraph-bullets-noicon {
+  .bullet-list {
+    li {
+      grid-template-columns: 8px auto;
+
+      .bullet-image {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}
+
+.paragraph-bullets-stats {
+  .bullet-list {
+    li {
+      grid-template-columns: auto auto;
+
+      .bullet-image {
+        white-space: nowrap;
+      }
+    }
+  }
 }
 
 /*css specific to forms*/
@@ -282,7 +515,7 @@ form.form {
   }
 
   .form-container {
-    width: 42vw;
+    width: 60vw;
     padding-bottom: 10px;
 
     @media all and (max-width: 767px) {
@@ -395,7 +628,7 @@ form.form {
     @media all and (min-width: 768px) {
       bottom: auto;
       right: 0px;
-      margin-top: 22px;
+      margin-top: 26px;
     }
   }
 }
@@ -490,9 +723,16 @@ body.gradient-bg {
 
   .page-container h1,
   .page-container h2,
+  .page-container h3,
+  .page-container h4,
   .page-container p,
   span {
     color: #ffffff;
+  }
+
+  .page-container .highlight,
+  .bullet-list li p::before {
+    color: #f7d7a0;
   }
 
   .title-block span {
@@ -503,7 +743,7 @@ body.gradient-bg {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b3cd', endColorstr='#01b6b6',GradientType=1 ); /* IE6-9 */
   }
 
-  .side-image {
+  .split-image {
     background-image: url('../images/grad_hospital_img.jpg');
 
     &:before {
@@ -522,6 +762,38 @@ body.gradient-bg {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
     }
   }
+
+  .paragraph-bullets-icon {
+    .bullet-list {
+      li {
+        .bullet-image {
+          background-color: rgba(255,255,255,0.5);
+        }
+      }
+    }
+  }
+
+  .paragraph-bullets-noicon {
+    .bullet-list {
+      li {
+        .bullet-image {
+          background-color: #f7d7a0;
+        }
+      }
+    }
+  }
+
+  .paragraph-bullets-stats {
+    .bullet-list {
+      .bullet-image {
+        .counter-text,
+        .counter-symbol {
+          color: #f7d7a0;
+        }
+      }
+    }
+  }
+
 
   form.form p {
     input.text,
@@ -567,9 +839,16 @@ body.white-bg {
 
   .page-container h1,
   .page-container h2,
+  .page-container h3,
+  .page-container h4,
   .page-container p,
   span {
     color: rgba(0,0,0,0.7);
+  }
+
+  .page-container .highlight,
+  .bullet-list li p::before {
+    color: #f79420;
   }
 
   .title-block {
@@ -594,6 +873,7 @@ body.white-bg {
     &:before,
     &:after {
       content: "";
+      width: 101%;
       height: 2px;
       position: absolute;
       left: -0.5%;
@@ -615,7 +895,6 @@ body.white-bg {
     }
 
     &:before {
-      width: 101%;
       top: -2px;
       background: #18B3A5; /* Old browsers */
       background: -moz-linear-gradient(left, #18B3A5 , #396C99 ); /* FF3.6-15 */
@@ -625,7 +904,6 @@ body.white-bg {
     }
 
     &:after {
-      width: 101%;
       bottom: -2px;
       background: #396C99; /* Old browsers */
       background: -moz-linear-gradient(right, #396C99 , #18B3A5 ); /* FF3.6-15 */
@@ -634,7 +912,7 @@ body.white-bg {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396C99', endColorstr='#18B3A5',GradientType=1 ); /* IE6-9 */
     }
 
-    .side-image {
+    .split-image {
       background-image: url('../images/grad_hospital_img.jpg');
 
       &:before {
@@ -643,6 +921,38 @@ body.white-bg {
 
       &:after {
         background: #ffffff;
+      }
+    }
+  }
+
+
+  .paragraph-bullets-icon {
+    .bullet-list {
+      li {
+        .bullet-image {
+          background-color: rgba(0,0,0,0.05);
+        }
+      }
+    }
+  }
+
+  .paragraph-bullets-noicon {
+    .bullet-list {
+      li {
+        .bullet-image {
+          background-color: #f79420;
+        }
+      }
+    }
+  }
+
+  .paragraph-bullets-stats {
+    .bullet-list {
+      .bullet-image {
+        .counter-text,
+        .counter-symbol {
+          color: #00b4a4;
+        }
       }
     }
   }
@@ -679,7 +989,6 @@ body.white-bg {
 
 html[data-useragent*='MSIE 10.0'],
 html[data-useragent*='rv:11.0'] {
-
   body {
     margin: 0;
   }
@@ -725,7 +1034,6 @@ html[data-useragent*='rv:11.0'] {
 /*css specific to browsers that don't support grid css*/
 
 .page-container.noGrid {
-
   .inner-container {
     float: left;
   }
@@ -734,59 +1042,54 @@ html[data-useragent*='rv:11.0'] {
     margin-right: 0;
   }
 
-  .side-image,
-  .first-content-block p,
+  .split-image,
+  .split-content-block p,
   .form-block,
   .form-block .form-container,
   form.form p select {
     width: 100%;
   }
 
-  .first-content-block {
-    p {
-      margin-left: 0;
-      float: left;
-      margin-bottom: 0;
-      margin-top: 40px;
+  .split-text {
+    margin-left: 0;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 40px;
 
-      @media all and (min-width: 768px) {
-        margin-left: 20px;
-      }
-
-      @media all and (min-width: 768px) and (max-width: 1200px) {
-        width: 58%;
-      }
-
-      @media all and (min-width: 1201px) {
-        width: 54%;
-      }
+    @media all and (min-width: 768px) {
+      margin-left: 20px;
     }
 
-    .side-image {
-      float: left;
-      min-height: 300px;
-      margin-left: 0;
-      margin-right: 0;
-
-      @media all and (min-width: 768px) {
-        width: 46%;
-        margin-left: -102px;
-        margin-right: 20px;
-      }
-
-      &:before,
-      &:after {
-        @media all and (min-width: 768px) {
-          height: 46px;
-        }
-      }
+    @media all and (min-width: 768px) and (max-width: 1200px) {
+      width: 58%;
     }
 
-
-
+    @media all and (min-width: 1201px) {
+      width: 54%;
+    }
   }
 
-  .second-content-block {
+  .split-image {
+    float: left;
+    min-height: 300px;
+    margin-left: 0;
+    margin-right: 0;
+
+    @media all and (min-width: 768px) {
+      width: 46%;
+      margin-left: -102px;
+      margin-right: 20px;
+    }
+
+    &:before,
+    &:after {
+      @media all and (min-width: 768px) {
+        height: 46px;
+      }
+    }
+  }
+
+  .whole-content-block {
     float: left;
   }
 

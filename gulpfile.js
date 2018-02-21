@@ -9,11 +9,11 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
-var autoprefixer = require('gulp-autoprefixer');
+var autoprefix = require('gulp-autoprefixer');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
@@ -28,20 +28,13 @@ gulp.task('browserSync', function() {
   })
 })
 
-gulp.task('autoprefixer', () =>
-  gulp.src('app/css')
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('dist'))
-);
-
 gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('app/scss/**/*.scss', ['clean:dist', 'sass', 'useref', 'images', browserSync.reload]);
+  gulp.watch('app/*.html', ['clean:dist', 'useref', 'images', browserSync.reload]);
+  gulp.watch('app/js/**/*.js', ['clean:dist', 'useref', browserSync.reload]);
 })
+
+
 
 gulp.task('useref', function(){
   return gulp.src('app/*.html')
@@ -49,6 +42,10 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulpIf('*.css', autoprefix({
+        browsers: ['last 4 versions'],
+        cascade: false
+    })))
     .pipe(gulp.dest('dist'))
 });
 
@@ -61,19 +58,22 @@ gulp.task('images', function(){
   .pipe(gulp.dest('dist/images'))
 });
 
+
+// Cleaning
+gulp.task('clean', function() {
+  return del.sync('dist').then(function(cb) {
+    return cache.clearAll(cb);
+  });
+})
+
 gulp.task('clean:dist', function() {
-  return del.sync('dist');
-})
+  return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
+});
 
-gulp.task('build', function (callback) {
-  runSequence('clean:dist',
-    ['sass', 'useref', 'images', 'autoprefixer'],
-    callback
-  )
-})
 
+// Evolking
 gulp.task('default', function (callback) {
-  runSequence(['sass','browserSync', 'watch'],
+  runSequence('clean:dist', 'sass', ['useref', 'images'], 'watch',
     callback
   )
 })
