@@ -17,29 +17,80 @@
   }
 })();
 
-if ($('.counter-value').length > 0) {
-  var widthsArray = []
+(function displayLargeText() {
+  if ($('.largeText-text').html().length == 0) {
+    var valueText = $('.largeText-value').html()
+    $('.largeText-text').html(valueText)
+  }
+})();
 
-  function countersMinWidth() {
-    $('.bullet-image').map(function(a,b) {
-      var thisWidth = $(b).width()
-      widthsArray.push(thisWidth)
+function largeFontSize(element,container,ratio,max) {
+  var thisText = $(element).find('.largeText-text')
+  var thisValue = $(element).find('.largeText-value')
+  var thisValueFontSize = parseInt(window.getComputedStyle(thisValue[0]).getPropertyValue("font-size"))
+  var valueWidth = thisValue.width()
+  var containerWidth = $(container).width()
+  var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/ratio
+
+  if (resultingValueFontSize >= max) {
+    thisText.css('font-size',max)
+  } else {
+    thisText.css('font-size',resultingValueFontSize)
+  }
+}
+
+function launchFontSize() {
+  largeFontSize('.content-title-block','.content-block',.5,88);
+}
+
+$(window).on('load', launchFontSize);
+$(window).on('resize', launchFontSize);
+
+
+
+// Functions the counters only
+if ($('.counter').length > 0) {
+
+  function largeFontSizeAndPlacing() {
+    var widthsArray = [];
+
+    $('.bullet-image').map(function(index,element,container,ratio) {
+      largeFontSize(element,'.bullet-list',3.5, 120)
+    });
+
+    $('.bullet-image').map(function(index,element) {
+      var thisValue = $(element).find('.largeText-value')
+      var thisValueFontSize = parseInt(window.getComputedStyle(thisValue[0]).getPropertyValue("font-size"))
+      var valueWidth = thisValue.width()
+      var containerWidth = $('.bullet-list').width()
+      var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/3.5
+
+      thisValue.css('font-size',resultingValueFontSize)
+    })
+
+    $('.bullet-image').map(function(index,element) {
+      var thisValue = $(element).find('.largeText-value')
+      var thisSymbol = $(element).find('.largeText-symbol')
+      var valueWidth = thisValue.width()
+      var symbolWidth = thisSymbol.width()
+      var textSummedWidth = valueWidth + symbolWidth +15
+      widthsArray.push(textSummedWidth)
     });
 
     var biggestWidth = Math.max.apply(null, widthsArray);
-    console.log(biggestWidth)
 
-    $('.bullet-image').map(function(a,b) {
-      $(b).css('min-width', biggestWidth)
-    })
-  };
+    $('.bullet-image').map(function(index,element) {
+      $(element).css('min-width', biggestWidth)
+    });
+  }
 
-  setTimeout(countersMinWidth, 1800);
+  $(window).on('load', largeFontSizeAndPlacing);
+  $(window).on('resize', largeFontSizeAndPlacing);
 
   // Animate the counters
   function animateCounters (counterItem) {
-    var counterTarget = $(counterItem).find(">.counter-text");
-    var counterVal = $(counterItem).find(">.counter-value");
+    var counterTarget = $(counterItem).find(".largeText-text");
+    var counterVal = $(counterItem).find(".largeText-value");
     var counterValParsed = parseInt($(counterVal)[0].innerHTML)
 
     $({someValue: 0}).animate({someValue: counterValParsed}, {
@@ -61,7 +112,7 @@ if ($('.counter-value').length > 0) {
 
   $('.bullet-list>li').map(function(a,b) {
     var thisCounter = $(b).find('.bullet-image');
-    var thisCounterVal = $(b).find('.bullet-image>.counter-value');
+    var thisCounterVal = $(b).find('.bullet-image .largeText-value');
     animateCounters(thisCounter[0]);
   })
 };

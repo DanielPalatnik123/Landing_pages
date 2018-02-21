@@ -225,6 +225,9 @@ textarea {
       margin-right: 25px;
       -ms-grid-column: 1; } }
 
+.largeText-value {
+  display: none; }
+
 .split-image {
   grid-area: sideImage;
   -ms-grid-row: 2;
@@ -309,27 +312,16 @@ textarea {
       background-repeat: no-repeat;
       background-size: 45px;
       border-radius: 40px; }
-      .bullet-list li .bullet-image .counter-value {
-        display: none; }
-      .bullet-list li .bullet-image .counter-text {
-        font-size: 82px;
+      .bullet-list li .bullet-image .largeText-text,
+      .bullet-list li .bullet-image .largeText-value {
         font-weight: 900;
         padding-right: 6px; }
-        @media all and (min-width: 520px) and (max-width: 767px) {
-          .bullet-list li .bullet-image .counter-text {
-            font-size: 96px; } }
-        @media all and (min-width: 768px) and (max-width: 991px) {
-          .bullet-list li .bullet-image .counter-text {
-            font-size: 82px; } }
-        @media all and (min-width: 992px) {
-          .bullet-list li .bullet-image .counter-text {
-            font-size: 96px; } }
-      .bullet-list li .bullet-image .counter-symbol {
+      .bullet-list li .bullet-image .largeText-symbol {
         font-size: 16px;
         font-weight: 900;
         margin: 6px 0; }
         @media all and (min-width: 768px) {
-          .bullet-list li .bullet-image .counter-symbol {
+          .bullet-list li .bullet-image .largeText-symbol {
             margin: 18px 0 -30px -7px; } }
     .bullet-list li .bullet-text {
       padding-left: 20px; }
@@ -595,8 +587,8 @@ body.gradient-bg {
     background-color: rgba(255, 255, 255, 0.5); }
   body.gradient-bg .paragraph-bullets-noicon .bullet-list li .bullet-image {
     background-color: #f7d7a0; }
-  body.gradient-bg .paragraph-bullets-stats .bullet-list .bullet-image .counter-text,
-  body.gradient-bg .paragraph-bullets-stats .bullet-list .bullet-image .counter-symbol {
+  body.gradient-bg .paragraph-bullets-stats .bullet-list .bullet-image .largeText-text,
+  body.gradient-bg .paragraph-bullets-stats .bullet-list .bullet-image .largeText-symbol {
     color: #f7d7a0; }
   body.gradient-bg form.form p input.text,
   body.gradient-bg form.form p textarea.standard,
@@ -695,8 +687,8 @@ body.white-bg {
     background-color: rgba(0, 0, 0, 0.05); }
   body.white-bg .paragraph-bullets-noicon .bullet-list li .bullet-image {
     background-color: #f79420; }
-  body.white-bg .paragraph-bullets-stats .bullet-list .bullet-image .counter-text,
-  body.white-bg .paragraph-bullets-stats .bullet-list .bullet-image .counter-symbol {
+  body.white-bg .paragraph-bullets-stats .bullet-list .bullet-image .largeText-text,
+  body.white-bg .paragraph-bullets-stats .bullet-list .bullet-image .largeText-symbol {
     color: #00b4a4; }
   body.white-bg form.form p input[type="checkbox"] + label {
     background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -26px -22px no-repeat;
