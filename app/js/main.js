@@ -55,14 +55,14 @@ if ($('.counter').length > 0) {
     var widthsArray = [];
 
     $('.bullet-image').map(function(index,element,container,ratio) {
-      largeFontSize(element,'.bullet-list',3.5, 120)
+      largeFontSize(element,'.whole-bullet-list',3.5, 120)
     });
 
     $('.bullet-image').map(function(index,element) {
       var thisValue = $(element).find('.largeText-value')
       var thisValueFontSize = parseInt(window.getComputedStyle(thisValue[0]).getPropertyValue("font-size"))
       var valueWidth = thisValue.width()
-      var containerWidth = $('.bullet-list').width()
+      var containerWidth = $('.whole-bullet-list').width()
       var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/3.5
 
       thisValue.css('font-size',resultingValueFontSize)
@@ -110,7 +110,7 @@ if ($('.counter').length > 0) {
     }
   }
 
-  $('.bullet-list>li').map(function(a,b) {
+  $('.whole-bullet-list>li').map(function(a,b) {
     var thisCounter = $(b).find('.bullet-image');
     var thisCounterVal = $(b).find('.bullet-image .largeText-value');
     animateCounters(thisCounter[0]);

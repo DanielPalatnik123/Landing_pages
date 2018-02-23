@@ -8,12 +8,23 @@ h1, h2 {
   letter-spacing: 0.5px;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4 {
   text-transform: uppercase;
+}
+
+h1 {
   font-size: 24px;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 18px;
 
   @media all and (min-width: 520px) {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
 
@@ -27,16 +38,24 @@ h2 {
 }
 
 h4 {
-  text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.8px;
+
+  @media all and (min-width: 520px) {
+    font-size: 14px;
+  }
 }
 
 p {
   margin: 0;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 22px;
+
+  @media all and (min-width: 520px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 input,
@@ -45,12 +64,41 @@ textarea {
   font-family: 'lato', sans-serif;
 }
 
+//patch for hidding controls of video player on iPhone
+*::-webkit-media-controls-panel {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+*::--webkit-media-controls-play-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
 .bold {
   font-weight: 700;
 }
 
 .italic {
   font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+.split-image,
+.split-text,
+.whole-bullet-list,
+.whole-text,
+.whole-video {
+  z-index: 1;
+  position: relative;
 }
 
 .page-container .highlight {
@@ -111,12 +159,14 @@ textarea {
 .whole-content-block,
 .split-content-block {
   margin-top: 40px;
+  position: relative;
 }
 
 .split-content-block {
   display: grid;
   display: -ms-grid;
 }
+
 
 /*css specific to containers - grid system*/
 
@@ -236,6 +286,7 @@ textarea {
   }
 }
 
+
 /*css specific to page type (top title)*/
 
 .title-block {
@@ -262,7 +313,6 @@ textarea {
   .title-background {
     justify-self: center;
     display: inline-block;
-    text-transform: uppercase;
     padding: 0 20px;
     font-weight: 700;
     z-index: 1;
@@ -293,6 +343,7 @@ textarea {
   margin-left: 0;
   background-size: cover;
   position: relative;
+  margin-top: 40px;
 
   @media all and (min-width: 520px) and (max-width: 767px) {
     -ms-grid-row: 1;
@@ -350,10 +401,9 @@ textarea {
 }
 
 .split-text {
-  grid-area: firstText;
+  grid-area: splitText;
   -ms-grid-row: 1;
   margin-left: 0;
-  margin-bottom: 40px;
 
   @media all and (min-width: 520px) and (max-width: 767px) {
     margin-left: 25px;
@@ -363,7 +413,6 @@ textarea {
 
   @media all and (min-width: 768px) and (max-width: 991px) {
     margin-left: 0;
-    margin-bottom: 40px;
     -ms-grid-row: 1;
   }
 
@@ -374,10 +423,12 @@ textarea {
   }
 }
 
-.bullet-list {
+.whole-bullet-list {
+  -ms-grid-row: 1;
   list-style: none;
   padding: 0;
   margin: 0;
+  z-index: 1;
 
   li {
     margin: 20px 0 40px;
@@ -417,34 +468,150 @@ textarea {
   }
 }
 
+.whole-video {
+  grid-area: wholeVideo;
+  -ms-grid-row: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 34vh;
+
+  video {
+    width: 165%;
+    height: auto;
+
+    @media all and (min-width: 992px) and (max-width: 1200px) {
+      width: 120%;
+    }
+
+    @media all and (min-width: 1201px) {
+      width: 100%;
+    }
+  }
+}
+
+.background-block {
+  position: absolute;
+  left: 0;
+  width: 13vw;
+  z-index: 0;
+  margin-left: -19vw;
+  height: auto;
+
+  @media all and (min-width: 768px) {
+    width: 3vw;
+  }
+
+  .background-image-cover {
+    width: 50vw;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    opacity: .7;
+    left: 0;
+    margin-right: -25.5vw;
+    z-index: 9;
+  }
+
+  .split-image {
+    margin-right: -30.5vw;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: -3px;
+      width: 100%;
+      height: 46px;
+
+      @media all and (min-width: 992px) {
+        height: 46px;
+      }
+    }
+  }
+}
+
 /*css specific to page specific content*/
 
 .image-paragraph {
   .split-content-block {
     grid-template-areas:
-      "firstText"
+      "splitText"
       "sideImage";
 
     @media all and (min-width: 520px) and (max-width: 767px) {
       grid-template-areas:
-        "sideImage firstText";
+        "sideImage splitText";
     }
 
     @media all and (min-width: 768px) and (max-width: 991px) {
       grid-template-areas:
-        "firstText"
+        "splitText"
         "sideImage";
     }
 
     @media all and (min-width: 992px) {
       grid-template-areas:
-        "sideImage firstText";
+        "sideImage splitText";
     }
   }
 }
 
+.video-image-paragraph {
+  .col-50-50 {
+    &.split-content-block {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 50% 50%;
+      -ms-grid-columns: 50% 50%;
+    }
+  }
+
+  .col-60-40 {
+    &.split-content-block {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 60% 40%;
+      -ms-grid-columns: 60% 40%;
+    }
+  }
+
+  .col-40-60 {
+    &.split-content-block {
+      grid-template-rows: 100%;
+      -ms-grid-rows: 100%;
+      grid-template-columns: 40% 60%;
+      -ms-grid-columns: 40% 60%;
+    }
+  }
+
+  .split-content-block {
+    grid-template-areas:
+    ". splitText";
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      grid-template-areas:
+        ". splitText";
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      grid-template-areas:
+      ". splitText";
+    }
+
+    @media all and (min-width: 992px) {
+      grid-template-areas:
+        ". splitText";
+    }
+  }
+
+  .split-text {
+    margin-left: 25px;
+  }
+}
+
 .paragraph-bullets-icon {
-  .bullet-list {
+  .whole-bullet-list {
     li {
       grid-template-columns: 80px auto;
 
@@ -457,7 +624,7 @@ textarea {
 }
 
 .paragraph-bullets-noicon {
-  .bullet-list {
+  .whole-bullet-list {
     li {
       grid-template-columns: 8px auto;
 
@@ -469,14 +636,35 @@ textarea {
   }
 }
 
-.paragraph-bullets-stats {
-  .bullet-list {
+.paragraph-bullets-stats,
+.paragraph-bullets-stats-bgimage {
+  .whole-bullet-list {
     li {
       grid-template-columns: auto auto;
 
       .bullet-image {
         white-space: nowrap;
       }
+    }
+  }
+}
+
+.paragraph-bullets-stats-bgimage {
+  .background-block {
+    top: -105px;
+
+    .split-image {
+      height: 70vh;
+    }
+  }
+}
+
+.video-image-paragraph {
+  .background-block {
+    top: 118px;
+
+    .split-image {
+      height: 34vh;
     }
   }
 }
@@ -719,7 +907,7 @@ body.gradient-bg {
   }
 
   .page-container .highlight,
-  .bullet-list li p::before {
+  .whole-bullet-list li p::before {
     color: #f7d7a0;
   }
 
@@ -736,23 +924,29 @@ body.gradient-bg {
 
     &:before {
       background: #00b2d6; /* Old browsers */
-      background: -moz-linear-gradient(left, #00b2d6 60%, transparent 60%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #00b2d6 60%,transparent 60%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #00b2d6 60%,transparent 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #00b2d6 70%,transparent 70%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #00b2d6 70%,transparent 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
     }
 
     &:after {
       background: #00b2d6; /* Old browsers */
-      background: -moz-linear-gradient(left, #00b2d6 60%, transparent 60%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #00b2d6 60%,transparent 60%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #00b2d6 60%,transparent 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #00b2d6 70%,transparent 70%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #00b2d6 70%,transparent 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
     }
   }
 
+  .background-block {
+    .background-image-cover {
+      opacity: 0;
+    }
+  }
+
   .paragraph-bullets-icon {
-    .bullet-list {
+    .whole-bullet-list {
       li {
         .bullet-image {
           background-color: rgba(255,255,255,0.5);
@@ -762,7 +956,7 @@ body.gradient-bg {
   }
 
   .paragraph-bullets-noicon {
-    .bullet-list {
+    .whole-bullet-list {
       li {
         .bullet-image {
           background-color: #f7d7a0;
@@ -771,8 +965,9 @@ body.gradient-bg {
     }
   }
 
-  .paragraph-bullets-stats {
-    .bullet-list {
+  .paragraph-bullets-stats,
+  .paragraph-bullets-stats-bgimage {
+    .whole-bullet-list {
       .bullet-image {
         .largeText-text,
         .largeText-symbol {
@@ -835,7 +1030,7 @@ body.white-bg {
   }
 
   .page-container .highlight,
-  .bullet-list li p::before {
+  .whole-bullet-list li p::before {
     color: #f79420;
   }
 
@@ -901,8 +1096,6 @@ body.white-bg {
     }
 
     .split-image {
-      background-image: url('../images/grad_hospital_img.jpg');
-
       &:before {
         background: #ffffff;
       }
@@ -915,7 +1108,7 @@ body.white-bg {
 
 
   .paragraph-bullets-icon {
-    .bullet-list {
+    .whole-bullet-list {
       li {
         .bullet-image {
           background-color: rgba(0,0,0,0.05);
@@ -925,7 +1118,7 @@ body.white-bg {
   }
 
   .paragraph-bullets-noicon {
-    .bullet-list {
+    .whole-bullet-list {
       li {
         .bullet-image {
           background-color: #f79420;
@@ -934,8 +1127,9 @@ body.white-bg {
     }
   }
 
-  .paragraph-bullets-stats {
-    .bullet-list {
+  .paragraph-bullets-stats,
+  .paragraph-bullets-stats-bgimage {
+    .whole-bullet-list {
       .bullet-image {
         .largeText-text,
         .largeText-symbol {
