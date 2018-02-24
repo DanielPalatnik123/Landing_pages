@@ -2,6 +2,7 @@ body {
   font-family: 'lato', sans-serif;
   display: grid;
   display: -ms-grid;
+  margin: 0;
 }
 
 h1, h2 {
@@ -16,7 +17,12 @@ h4 {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 20px;
+  // display: inline;
+
+  @media all and (min-width: 768px) {
+    font-size: 38px;
+  }
 }
 
 h3 {
@@ -61,7 +67,7 @@ p {
 input,
 select,
 textarea {
-  font-family: 'lato', sans-serif;
+  font-family: 'lato', sans-serif!important;
 }
 
 //patch for hidding controls of video player on iPhone
@@ -92,11 +98,10 @@ h1,
 h2,
 h3,
 h4,
-.split-image,
-.split-text,
-.whole-bullet-list,
-.whole-text,
-.whole-video {
+.side-image,
+.text,
+.bullet-list,
+.video-container {
   z-index: 1;
   position: relative;
 }
@@ -118,7 +123,7 @@ h4,
 
 }
 
-.cipher_logo {
+.cipher-logo {
   position: absolute;
   margin-left: 30px;
   top: 20px;
@@ -143,7 +148,7 @@ h4,
   animation: fadein 2s;
 }
 
-.inner-container {
+.outline-container {
   padding: 30px;
   min-height: 70vh;
   border-width: 2px;
@@ -156,6 +161,16 @@ h4,
   }
 }
 
+.content-block {
+  -ms-grid-row: 1;
+
+  @media all and (min-width: 768px) {
+    margin-right: 25px;
+    -ms-grid-column: 1;
+  }
+}
+
+
 .whole-content-block,
 .split-content-block {
   margin-top: 40px;
@@ -165,8 +180,30 @@ h4,
 .split-content-block {
   display: grid;
   display: -ms-grid;
-}
 
+  .text {
+    grid-area: splitText;
+    -ms-grid-row: 1;
+    margin-left: 0;
+
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      margin-left: 25px;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      margin-left: 0;
+      -ms-grid-row: 1;
+    }
+
+    @media all and (min-width: 992px) {
+      margin-left: 25px;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+  }
+}
 
 /*css specific to containers - grid system*/
 
@@ -287,7 +324,7 @@ h4,
 }
 
 
-/*css specific to page type (top title)*/
+/*css specific to the page header (top title)*/
 
 .title-block {
   display: grid;
@@ -320,22 +357,13 @@ h4,
 }
 
 
-/*css specific to content*/
+/*css specific to content types*/
 
-.content-block {
-  -ms-grid-row: 1;
-
-  @media all and (min-width: 768px) {
-    margin-right: 25px;
-    -ms-grid-column: 1;
-  }
-}
-
-.largeText-value {
+.large-text-value {
   display: none;
 }
 
-.split-image {
+.side-image {
   grid-area: sideImage;
   -ms-grid-row: 2;
   margin-right: 0;
@@ -352,6 +380,7 @@ h4,
     height: auto;
     margin-left: -102px;
     position: relative;
+    margin-top: 0;
   }
 
   @media all and (min-width: 768px) and (max-width: 991px) {
@@ -359,6 +388,7 @@ h4,
     margin-right: 0;
     height: 300px;
     margin-left: 0;
+    margin-top: 40px;
   }
 
   @media all and (min-width: 992px) {
@@ -367,6 +397,7 @@ h4,
     margin-right: 25px;
     margin-left: -102px;
     height: auto;
+    margin-top: 0;
   }
 
   &:before,
@@ -379,7 +410,7 @@ h4,
     width: 100px;
 
     @media all and (min-width: 520px) and (max-width: 767px) {
-      height: 46px;
+      height: 40px;
     }
 
     @media all and (min-width: 768px) and (max-width: 991px) {
@@ -387,43 +418,29 @@ h4,
     }
 
     @media all and (min-width: 992px) {
-      height: 46px;
+      height: 40px;
     }
   }
 
   &:before {
-    top: -46px;
+    top: -40px;
   }
 
   &:after {
-    bottom: -46px;
+    bottom: -40px;
   }
 }
 
-.split-text {
-  grid-area: splitText;
-  -ms-grid-row: 1;
+.image {
+  margin-right: 0;
+  height: auto;
+  max-width: 100%;
   margin-left: 0;
-
-  @media all and (min-width: 520px) and (max-width: 767px) {
-    margin-left: 25px;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-  }
-
-  @media all and (min-width: 768px) and (max-width: 991px) {
-    margin-left: 0;
-    -ms-grid-row: 1;
-  }
-
-  @media all and (min-width: 992px) {
-    margin-left: 25px;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-  }
+  background-size: cover;
+  position: relative;
 }
 
-.whole-bullet-list {
+.bullet-list {
   -ms-grid-row: 1;
   list-style: none;
   padding: 0;
@@ -441,13 +458,13 @@ h4,
       background-size: 45px;
       border-radius: 40px;
 
-      .largeText-text,
-      .largeText-value {
+      .large-text-text,
+      .large-text-value {
         font-weight: 900;
         padding-right: 6px;
       }
 
-      .largeText-symbol {
+      .large-text-symbol {
         font-size: 16px;
         font-weight: 900;
         margin: 6px 0;
@@ -468,8 +485,8 @@ h4,
   }
 }
 
-.whole-video {
-  grid-area: wholeVideo;
+.video-container {
+  grid-area: video;
   -ms-grid-row: 1;
   overflow: hidden;
   width: 100%;
@@ -489,7 +506,7 @@ h4,
   }
 }
 
-.background-block {
+.underlayer {
   position: absolute;
   left: 0;
   width: 13vw;
@@ -504,16 +521,15 @@ h4,
   .background-image-cover {
     width: 50vw;
     height: 100%;
-    background: #fff;
     position: absolute;
     top: 0;
-    opacity: .7;
+    opacity: .4;
     left: 0;
     margin-right: -25.5vw;
     z-index: 9;
   }
 
-  .split-image {
+  .side-image {
     margin-right: -30.5vw;
 
     &:before,
@@ -522,10 +538,10 @@ h4,
       position: absolute;
       left: -3px;
       width: 100%;
-      height: 46px;
+      height: 40px;
 
       @media all and (min-width: 992px) {
-        height: 46px;
+        height: 40px;
       }
     }
   }
@@ -557,7 +573,7 @@ h4,
   }
 }
 
-.video-image-paragraph {
+.video-image {
   .col-50-50 {
     &.split-content-block {
       grid-template-rows: 100%;
@@ -605,13 +621,13 @@ h4,
     }
   }
 
-  .split-text {
+  .split-content-block .text {
     margin-left: 25px;
   }
 }
 
-.paragraph-bullets-icon {
-  .whole-bullet-list {
+.bullets-icon {
+  .bullet-list {
     li {
       grid-template-columns: 80px auto;
 
@@ -623,8 +639,8 @@ h4,
   }
 }
 
-.paragraph-bullets-noicon {
-  .whole-bullet-list {
+.bullets-noicon {
+  .bullet-list {
     li {
       grid-template-columns: 8px auto;
 
@@ -636,9 +652,9 @@ h4,
   }
 }
 
-.paragraph-bullets-stats,
-.paragraph-bullets-stats-bgimage {
-  .whole-bullet-list {
+.bullets-stats,
+.bullets-stats-bgimage {
+  .bullet-list {
     li {
       grid-template-columns: auto auto;
 
@@ -649,21 +665,21 @@ h4,
   }
 }
 
-.paragraph-bullets-stats-bgimage {
-  .background-block {
+.bullets-stats-bgimage {
+  .underlayer {
     top: -105px;
 
-    .split-image {
+    .side-image {
       height: 70vh;
     }
   }
 }
 
-.video-image-paragraph {
-  .background-block {
+.video-image {
+  .underlayer {
     top: 118px;
 
-    .split-image {
+    .side-image {
       height: 34vh;
     }
   }
@@ -671,7 +687,7 @@ h4,
 
 /*css specific to forms*/
 
-.form-block {
+.form-section {
   -ms-grid-row: 2;
 
   @media all and (min-width: 768px) {
@@ -877,23 +893,23 @@ span.footer-text {
 
 /*css specific to gradient-bg*/
 
-body.gradient-bg {
+.page-wrapper.gradient-bg {
   background: #00b2d6; /* Old browsers */
   background: -moz-linear-gradient(left, #00b2d6 0%, #00b7ac 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #00b2d6 0%,#00b7ac 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, #00b2d6 0%,#00b7ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='#00b7ac',GradientType=1 ); /* IE6-9 */
 
-  .cipher_logo {
+  .cipher-logo {
     background-image: url('https://cipherhealth.com/wp-content/uploads/2017/03/cipherlogo.svg');
   }
 
   .page-container {
-    background-image:url('../images/bg.svg');
+    background-image:url('https://cipherhealth.com/wp-content/uploads/2018/02/bg.svg');
     background-size: cover;
   }
 
-  .inner-container {
+  .outline-container {
     border-color: #ffffff;
   }
 
@@ -903,11 +919,11 @@ body.gradient-bg {
   .page-container h4,
   .page-container p,
   span {
-    color: #ffffff;
+    color: #ffffff!important;
   }
 
   .page-container .highlight,
-  .whole-bullet-list li p::before {
+  .bullet-list li p::before {
     color: #f7d7a0;
   }
 
@@ -919,8 +935,7 @@ body.gradient-bg {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b3cd', endColorstr='#01b6b6',GradientType=1 ); /* IE6-9 */
   }
 
-  .split-image {
-    background-image: url('../images/grad_hospital_img.jpg');
+  .side-image {
 
     &:before {
       background: #00b2d6; /* Old browsers */
@@ -939,14 +954,18 @@ body.gradient-bg {
     }
   }
 
-  .background-block {
+  .underlayer {
     .background-image-cover {
-      opacity: 0;
+      background: #00b2d6; /* Old browsers */
+      background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, #00b2d6 70%,transparent 70%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, #00b2d6 70%,transparent 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 ); /* IE6-9 */
     }
   }
 
-  .paragraph-bullets-icon {
-    .whole-bullet-list {
+  .bullets-icon {
+    .bullet-list {
       li {
         .bullet-image {
           background-color: rgba(255,255,255,0.5);
@@ -955,8 +974,8 @@ body.gradient-bg {
     }
   }
 
-  .paragraph-bullets-noicon {
-    .whole-bullet-list {
+  .bullets-noicon {
+    .bullet-list {
       li {
         .bullet-image {
           background-color: #f7d7a0;
@@ -965,12 +984,12 @@ body.gradient-bg {
     }
   }
 
-  .paragraph-bullets-stats,
-  .paragraph-bullets-stats-bgimage {
-    .whole-bullet-list {
+  .bullets-stats,
+  .bullets-stats-bgimage {
+    .bullet-list {
       .bullet-image {
-        .largeText-text,
-        .largeText-symbol {
+        .large-text-text,
+        .large-text-symbol {
           color: #f7d7a0;
         }
       }
@@ -1013,10 +1032,10 @@ body.gradient-bg {
 
 /*css specific to white-bg*/
 
-body.white-bg {
+.page-wrapper.white-bg {
   background: #ffffff;
 
-  .cipher_logo {
+  .cipher-logo {
     background-image: url('https://cipherhealth.com/wp-content/uploads/2018/02/cipherlogo_cfoam.svg');
   }
 
@@ -1030,7 +1049,7 @@ body.white-bg {
   }
 
   .page-container .highlight,
-  .whole-bullet-list li p::before {
+  .bullet-list li p::before {
     color: #f79420;
   }
 
@@ -1046,7 +1065,7 @@ body.white-bg {
     }
   }
 
-  .inner-container {
+  .outline-container {
     border-left-color: #18B3A5;
     border-right-color: #396C99;
     border-top-color: transparent;
@@ -1095,7 +1114,7 @@ body.white-bg {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396C99', endColorstr='#18B3A5',GradientType=1 ); /* IE6-9 */
     }
 
-    .split-image {
+    .side-image {
       &:before {
         background: #ffffff;
       }
@@ -1106,9 +1125,14 @@ body.white-bg {
     }
   }
 
+  .background-block {
+    .background-image-cover {
+      background: #fff;
+    }
+  }
 
-  .paragraph-bullets-icon {
-    .whole-bullet-list {
+  .bullets-icon {
+    .bullet-list {
       li {
         .bullet-image {
           background-color: rgba(0,0,0,0.05);
@@ -1117,8 +1141,8 @@ body.white-bg {
     }
   }
 
-  .paragraph-bullets-noicon {
-    .whole-bullet-list {
+  .bullets-noicon {
+    .bullet-list {
       li {
         .bullet-image {
           background-color: #f79420;
@@ -1127,12 +1151,12 @@ body.white-bg {
     }
   }
 
-  .paragraph-bullets-stats,
-  .paragraph-bullets-stats-bgimage {
-    .whole-bullet-list {
+  .bullets-stats,
+  .bullets-stats-bgimage {
+    .bullet-list {
       .bullet-image {
-        .largeText-text,
-        .largeText-symbol {
+        .large-text-text,
+        .large-text-symbol {
           color: #00b4a4;
         }
       }
@@ -1171,7 +1195,8 @@ body.white-bg {
 
 html[data-useragent*='MSIE 10.0'],
 html[data-useragent*='rv:11.0'] {
-  body {
+  body,
+  .page-wrapper {
     margin: 0;
   }
 
@@ -1189,7 +1214,7 @@ html[data-useragent*='rv:11.0'] {
     background-size: 210%;
   }
 
-  body.white-bg {
+  .page-wrapper.white-bg {
     .title-block .title-background h2 {
       color: #2d899e;
     }
@@ -1200,7 +1225,7 @@ html[data-useragent*='rv:11.0'] {
     }
   }
 
-  body.gradient-bg {
+  .page-wrapper.gradient-bg {
     .title-block .title-background h2 {
       color: #ffffff;
     }
@@ -1216,7 +1241,7 @@ html[data-useragent*='rv:11.0'] {
 /*css specific to browsers that don't support grid css*/
 
 .page-container.noGrid {
-  .inner-container {
+  .outline-container {
     float: left;
   }
 
@@ -1224,15 +1249,15 @@ html[data-useragent*='rv:11.0'] {
     margin-right: 0;
   }
 
-  .split-image,
+  .side-image,
   .split-content-block p,
-  .form-block,
-  .form-block .form-container,
+  .form-section,
+  .form-section .form-container,
   form.form p select {
     width: 100%;
   }
 
-  .split-text {
+  .split-content-block .text {
     margin-left: 0;
     float: left;
     margin-bottom: 0;
@@ -1251,7 +1276,7 @@ html[data-useragent*='rv:11.0'] {
     }
   }
 
-  .split-image {
+  .side-image {
     float: left;
     min-height: 300px;
     margin-left: 0;
@@ -1266,7 +1291,7 @@ html[data-useragent*='rv:11.0'] {
     &:before,
     &:after {
       @media all and (min-width: 768px) {
-        height: 46px;
+        height: 40px;
       }
     }
   }
@@ -1275,7 +1300,7 @@ html[data-useragent*='rv:11.0'] {
     float: left;
   }
 
-  .form-block {
+  .form-section {
     float: left;
     margin-left: 0;
     margin-top: 30px;

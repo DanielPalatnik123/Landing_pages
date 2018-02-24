@@ -1,7 +1,8 @@
 body {
   font-family: 'lato', sans-serif;
   display: grid;
-  display: -ms-grid; }
+  display: -ms-grid;
+  margin: 0; }
 
 h1, h2 {
   letter-spacing: 0.5px; }
@@ -13,7 +14,10 @@ h4 {
   text-transform: uppercase; }
 
 h1 {
-  font-size: 24px; }
+  font-size: 20px; }
+  @media all and (min-width: 768px) {
+    h1 {
+      font-size: 38px; } }
 
 h3 {
   font-weight: 300;
@@ -49,7 +53,7 @@ p {
 input,
 select,
 textarea {
-  font-family: 'lato', sans-serif; }
+  font-family: "lato", sans-serif !important; }
 
 *::-webkit-media-controls-panel {
   display: none !important;
@@ -73,11 +77,10 @@ h1,
 h2,
 h3,
 h4,
-.split-image,
-.split-text,
-.whole-bullet-list,
-.whole-text,
-.whole-video {
+.side-image,
+.text,
+.bullet-list,
+.video-container {
   z-index: 1;
   position: relative; }
 
@@ -93,7 +96,7 @@ h4,
     .page-container .highlight {
       font-size: 36px; } }
 
-.cipher_logo {
+.cipher-logo {
   position: absolute;
   margin-left: 30px;
   top: 20px;
@@ -101,7 +104,7 @@ h4,
   width: 40px;
   animation: fadein 2s; }
   @media all and (min-width: 520px) {
-    .cipher_logo {
+    .cipher-logo {
       margin-left: 49px; } }
 
 /*css specific to containers*/
@@ -114,16 +117,23 @@ h4,
   min-height: auto;
   animation: fadein 2s; }
 
-.inner-container {
+.outline-container {
   padding: 30px;
   min-height: 70vh;
   border-width: 2px;
   border-style: solid;
   margin: 80px 30px 25px; }
   @media all and (min-width: 520px) {
-    .inner-container {
+    .outline-container {
       padding: 50px;
       margin: 80px 50px 25px; } }
+
+.content-block {
+  -ms-grid-row: 1; }
+  @media all and (min-width: 768px) {
+    .content-block {
+      margin-right: 25px;
+      -ms-grid-column: 1; } }
 
 .whole-content-block,
 .split-content-block {
@@ -133,6 +143,24 @@ h4,
 .split-content-block {
   display: grid;
   display: -ms-grid; }
+  .split-content-block .text {
+    grid-area: splitText;
+    -ms-grid-row: 1;
+    margin-left: 0; }
+    @media all and (min-width: 520px) and (max-width: 767px) {
+      .split-content-block .text {
+        margin-left: 25px;
+        -ms-grid-row: 1;
+        -ms-grid-column: 2; } }
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      .split-content-block .text {
+        margin-left: 0;
+        -ms-grid-row: 1; } }
+    @media all and (min-width: 992px) {
+      .split-content-block .text {
+        margin-left: 25px;
+        -ms-grid-row: 1;
+        -ms-grid-column: 2; } }
 
 /*css specific to containers - grid system*/
 .col-50-50,
@@ -232,7 +260,7 @@ h4,
       grid-template-columns: 40% 60%;
       -ms-grid-columns: 40% 60%; } }
 
-/*css specific to page type (top title)*/
+/*css specific to the page header (top title)*/
 .title-block {
   display: grid;
   position: absolute;
@@ -256,18 +284,11 @@ h4,
     font-weight: 700;
     z-index: 1; }
 
-/*css specific to content*/
-.content-block {
-  -ms-grid-row: 1; }
-  @media all and (min-width: 768px) {
-    .content-block {
-      margin-right: 25px;
-      -ms-grid-column: 1; } }
-
-.largeText-value {
+/*css specific to content types*/
+.large-text-value {
   display: none; }
 
-.split-image {
+.side-image {
   grid-area: sideImage;
   -ms-grid-row: 2;
   margin-right: 0;
@@ -277,27 +298,30 @@ h4,
   position: relative;
   margin-top: 40px; }
   @media all and (min-width: 520px) and (max-width: 767px) {
-    .split-image {
+    .side-image {
       -ms-grid-row: 1;
       -ms-grid-column: 1;
       margin-right: 25px;
       height: auto;
       margin-left: -102px;
-      position: relative; } }
+      position: relative;
+      margin-top: 0; } }
   @media all and (min-width: 768px) and (max-width: 991px) {
-    .split-image {
+    .side-image {
       -ms-grid-row: 2;
       margin-right: 0;
       height: 300px;
-      margin-left: 0; } }
+      margin-left: 0;
+      margin-top: 40px; } }
   @media all and (min-width: 992px) {
-    .split-image {
+    .side-image {
       -ms-grid-row: 1;
       -ms-grid-column: 1;
       margin-right: 25px;
       margin-left: -102px;
-      height: auto; } }
-  .split-image:before, .split-image:after {
+      height: auto;
+      margin-top: 0; } }
+  .side-image:before, .side-image:after {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -305,86 +329,75 @@ h4,
     height: 0;
     width: 100px; }
     @media all and (min-width: 520px) and (max-width: 767px) {
-      .split-image:before, .split-image:after {
-        height: 46px; } }
+      .side-image:before, .side-image:after {
+        height: 40px; } }
     @media all and (min-width: 768px) and (max-width: 991px) {
-      .split-image:before, .split-image:after {
+      .side-image:before, .side-image:after {
         height: 0; } }
     @media all and (min-width: 992px) {
-      .split-image:before, .split-image:after {
-        height: 46px; } }
-  .split-image:before {
-    top: -46px; }
-  .split-image:after {
-    bottom: -46px; }
+      .side-image:before, .side-image:after {
+        height: 40px; } }
+  .side-image:before {
+    top: -40px; }
+  .side-image:after {
+    bottom: -40px; }
 
-.split-text {
-  grid-area: splitText;
-  -ms-grid-row: 1;
-  margin-left: 0; }
-  @media all and (min-width: 520px) and (max-width: 767px) {
-    .split-text {
-      margin-left: 25px;
-      -ms-grid-row: 1;
-      -ms-grid-column: 2; } }
-  @media all and (min-width: 768px) and (max-width: 991px) {
-    .split-text {
-      margin-left: 0;
-      -ms-grid-row: 1; } }
-  @media all and (min-width: 992px) {
-    .split-text {
-      margin-left: 25px;
-      -ms-grid-row: 1;
-      -ms-grid-column: 2; } }
+.image {
+  margin-right: 0;
+  height: auto;
+  max-width: 100%;
+  margin-left: 0;
+  background-size: cover;
+  position: relative; }
 
-.whole-bullet-list {
+.bullet-list {
   -ms-grid-row: 1;
   list-style: none;
   padding: 0;
   margin: 0;
   z-index: 1; }
-  .whole-bullet-list li {
+  .bullet-list li {
     margin: 20px 0 40px;
     display: grid;
     align-items: center; }
-    .whole-bullet-list li .bullet-image {
+    .bullet-list li .bullet-image {
       background-position: center;
       background-repeat: no-repeat;
       background-size: 45px;
       border-radius: 40px; }
-      .whole-bullet-list li .bullet-image .largeText-text,
-      .whole-bullet-list li .bullet-image .largeText-value {
+      .bullet-list li .bullet-image .large-text-text,
+      .bullet-list li .bullet-image .large-text-value {
         font-weight: 900;
         padding-right: 6px; }
-      .whole-bullet-list li .bullet-image .largeText-symbol {
+      .bullet-list li .bullet-image .large-text-symbol {
         font-size: 16px;
         font-weight: 900;
         margin: 6px 0; }
         @media all and (min-width: 768px) {
-          .whole-bullet-list li .bullet-image .largeText-symbol {
+          .bullet-list li .bullet-image .large-text-symbol {
             margin: 18px 0 -30px -7px; } }
-    .whole-bullet-list li .bullet-text {
+    .bullet-list li .bullet-text {
       padding-left: 20px; }
-      .whole-bullet-list li .bullet-text h3 {
+      .bullet-list li .bullet-text h3 {
         padding-bottom: 10px; }
 
-.whole-video {
-  grid-area: wholeVideo;
+.video-container {
+  grid-area: video;
   -ms-grid-row: 1;
   overflow: hidden;
   width: 100%;
   height: 34vh; }
-  .whole-video video {
+  .video-container video {
     width: 165%;
     height: auto; }
     @media all and (min-width: 992px) and (max-width: 1200px) {
-      .whole-video video {
+      .video-container video {
         width: 120%; } }
     @media all and (min-width: 1201px) {
-      .whole-video video {
+      .video-container video {
         width: 100%; } }
 
-.background-block {
+.underlayer {
   position: absolute;
   left: 0;
   width: 13vw;
@@ -392,29 +405,28 @@ h4,
   margin-left: -19vw;
   height: auto; }
   @media all and (min-width: 768px) {
-    .background-block {
+    .underlayer {
       width: 3vw; } }
-  .background-block .background-image-cover {
+  .underlayer .background-image-cover {
     width: 50vw;
     height: 100%;
-    background: #fff;
     position: absolute;
     top: 0;
-    opacity: .7;
+    opacity: .4;
     left: 0;
     margin-right: -25.5vw;
     z-index: 9; }
-  .background-block .split-image {
+  .underlayer .side-image {
     margin-right: -30.5vw; }
-    .background-block .split-image:before, .background-block .split-image:after {
+    .underlayer .side-image:before, .underlayer .side-image:after {
       content: "";
       position: absolute;
       left: -3px;
       width: 100%;
-      height: 46px; }
+      height: 40px; }
       @media all and (min-width: 992px) {
-        .background-block .split-image:before, .background-block .split-image:after {
-          height: 46px; } }
+        .underlayer .side-image:before, .underlayer .side-image:after {
+          height: 40px; } }
 
 /*css specific to page specific content*/
 .image-paragraph .split-content-block {
@@ -429,73 +441,73 @@ h4,
     .image-paragraph .split-content-block {
       grid-template-areas: "sideImage splitText"; } }
 
-.video-image-paragraph .col-50-50.split-content-block {
+.video-image .col-50-50.split-content-block {
   grid-template-rows: 100%;
   -ms-grid-rows: 100%;
   grid-template-columns: 50% 50%;
   -ms-grid-columns: 50% 50%; }
 
-.video-image-paragraph .col-60-40.split-content-block {
+.video-image .col-60-40.split-content-block {
   grid-template-rows: 100%;
   -ms-grid-rows: 100%;
   grid-template-columns: 60% 40%;
   -ms-grid-columns: 60% 40%; }
 
-.video-image-paragraph .col-40-60.split-content-block {
+.video-image .col-40-60.split-content-block {
   grid-template-rows: 100%;
   -ms-grid-rows: 100%;
   grid-template-columns: 40% 60%;
   -ms-grid-columns: 40% 60%; }
 
-.video-image-paragraph .split-content-block {
+.video-image .split-content-block {
   grid-template-areas: ". splitText"; }
   @media all and (min-width: 520px) and (max-width: 767px) {
-    .video-image-paragraph .split-content-block {
+    .video-image .split-content-block {
       grid-template-areas: ". splitText"; } }
   @media all and (min-width: 768px) and (max-width: 991px) {
-    .video-image-paragraph .split-content-block {
+    .video-image .split-content-block {
       grid-template-areas: ". splitText"; } }
   @media all and (min-width: 992px) {
-    .video-image-paragraph .split-content-block {
+    .video-image .split-content-block {
       grid-template-areas: ". splitText"; } }
 
-.video-image-paragraph .split-text {
+.video-image .split-content-block .text {
   margin-left: 25px; }
 
-.paragraph-bullets-icon .whole-bullet-list li {
+.bullets-icon .bullet-list li {
   grid-template-columns: 80px auto; }
-  .paragraph-bullets-icon .whole-bullet-list li .bullet-image {
+  .bullets-icon .bullet-list li .bullet-image {
     width: 80px;
     height: 80px; }
 
-.paragraph-bullets-noicon .whole-bullet-list li {
+.bullets-noicon .bullet-list li {
   grid-template-columns: 8px auto; }
-  .paragraph-bullets-noicon .whole-bullet-list li .bullet-image {
+  .bullets-noicon .bullet-list li .bullet-image {
     width: 8px;
     height: 8px; }
 
-.paragraph-bullets-stats .whole-bullet-list li,
-.paragraph-bullets-stats-bgimage .whole-bullet-list li {
+.bullets-stats .bullet-list li,
+.bullets-stats-bgimage .bullet-list li {
   grid-template-columns: auto auto; }
-  .paragraph-bullets-stats .whole-bullet-list li .bullet-image,
-  .paragraph-bullets-stats-bgimage .whole-bullet-list li .bullet-image {
+  .bullets-stats .bullet-list li .bullet-image,
+  .bullets-stats-bgimage .bullet-list li .bullet-image {
     white-space: nowrap; }
 
-.paragraph-bullets-stats-bgimage .background-block {
+.bullets-stats-bgimage .underlayer {
   top: -105px; }
-  .paragraph-bullets-stats-bgimage .background-block .split-image {
+  .bullets-stats-bgimage .underlayer .side-image {
     height: 70vh; }
 
-.video-image-paragraph .background-block {
+.video-image .underlayer {
   top: 118px; }
-  .video-image-paragraph .background-block .split-image {
+  .video-image .underlayer .side-image {
     height: 34vh; }
 
 /*css specific to forms*/
-.form-block {
+.form-section {
   -ms-grid-row: 2; }
   @media all and (min-width: 768px) {
-    .form-block {
+    .form-section {
       -ms-grid-row: 1;
       -ms-grid-column: 2;
       margin-left: 25px; } }
@@ -653,7 +665,7 @@ span.footer-text {
     margin-top: 0; } }
 
 /*css specific to gradient-bg*/
-body.gradient-bg {
+.page-wrapper.gradient-bg {
   background: #00b2d6;
   /* Old browsers */
   background: -moz-linear-gradient(left, #00b2d6 0%, #00b7ac 100%);
@@ -664,24 +676,24 @@ body.gradient-bg {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='#00b7ac',GradientType=1 );
   /* IE6-9 */ }
-  body.gradient-bg .cipher_logo {
+  .page-wrapper.gradient-bg .cipher-logo {
     background-image: url("https://cipherhealth.com/wp-content/uploads/2017/03/cipherlogo.svg"); }
-  body.gradient-bg .page-container {
-    background-image: url("../images/bg.svg");
+  .page-wrapper.gradient-bg .page-container {
+    background-image: url("https://cipherhealth.com/wp-content/uploads/2018/02/bg.svg");
     background-size: cover; }
-  body.gradient-bg .inner-container {
+  .page-wrapper.gradient-bg .outline-container {
     border-color: #ffffff; }
-  body.gradient-bg .page-container h1,
-  body.gradient-bg .page-container h2,
-  body.gradient-bg .page-container h3,
-  body.gradient-bg .page-container h4,
-  body.gradient-bg .page-container p,
-  body.gradient-bg span {
-    color: #ffffff; }
-  body.gradient-bg .page-container .highlight,
-  body.gradient-bg .whole-bullet-list li p::before {
+  .page-wrapper.gradient-bg .page-container h1,
+  .page-wrapper.gradient-bg .page-container h2,
+  .page-wrapper.gradient-bg .page-container h3,
+  .page-wrapper.gradient-bg .page-container h4,
+  .page-wrapper.gradient-bg .page-container p,
+  .page-wrapper.gradient-bg span {
+    color: #ffffff !important; }
+  .page-wrapper.gradient-bg .page-container .highlight,
+  .page-wrapper.gradient-bg .bullet-list li p::before {
     color: #f7d7a0; }
-  body.gradient-bg .title-block span {
+  .page-wrapper.gradient-bg .title-block span {
     background: #01b3cd;
     /* Old browsers */
     background: -moz-linear-gradient(left, #01b3cd 0%, #01b6b6 100%);
@@ -692,105 +704,112 @@ body.gradient-bg {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b3cd', endColorstr='#01b6b6',GradientType=1 );
     /* IE6-9 */ }
-  body.gradient-bg .split-image {
-    background-image: url("../images/grad_hospital_img.jpg"); }
-    body.gradient-bg .split-image:before {
-      background: #00b2d6;
-      /* Old browsers */
-      background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
-      /* IE6-9 */ }
-    body.gradient-bg .split-image:after {
-      background: #00b2d6;
-      /* Old browsers */
-      background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
-      /* FF3.6-15 */
-      background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
-      /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
-      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
-      /* IE6-9 */ }
-  body.gradient-bg .background-block .background-image-cover {
-    opacity: 0; }
-  body.gradient-bg .paragraph-bullets-icon .whole-bullet-list li .bullet-image {
+  .page-wrapper.gradient-bg .side-image:before {
+    background: #00b2d6;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
+    /* IE6-9 */ }
+  .page-wrapper.gradient-bg .side-image:after {
+    background: #00b2d6;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
+    /* IE6-9 */ }
+  .page-wrapper.gradient-bg .underlayer .background-image-cover {
+    background: #00b2d6;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
+    /* IE6-9 */ }
+  .page-wrapper.gradient-bg .bullets-icon .bullet-list li .bullet-image {
     background-color: rgba(255, 255, 255, 0.5); }
-  body.gradient-bg .paragraph-bullets-noicon .whole-bullet-list li .bullet-image {
+  .page-wrapper.gradient-bg .bullets-noicon .bullet-list li .bullet-image {
     background-color: #f7d7a0; }
-  body.gradient-bg .paragraph-bullets-stats .whole-bullet-list .bullet-image .largeText-text,
-  body.gradient-bg .paragraph-bullets-stats .whole-bullet-list .bullet-image .largeText-symbol,
-  body.gradient-bg .paragraph-bullets-stats-bgimage .whole-bullet-list .bullet-image .largeText-text,
-  body.gradient-bg .paragraph-bullets-stats-bgimage .whole-bullet-list .bullet-image .largeText-symbol {
+  .page-wrapper.gradient-bg .bullets-stats .bullet-list .bullet-image .large-text-text,
+  .page-wrapper.gradient-bg .bullets-stats .bullet-list .bullet-image .large-text-symbol,
+  .page-wrapper.gradient-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-text,
+  .page-wrapper.gradient-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-symbol {
     color: #f7d7a0; }
-  body.gradient-bg form.form p input.text,
-  body.gradient-bg form.form p textarea.standard,
-  body.gradient-bg form.form p select {
+  .page-wrapper.gradient-bg form.form p input.text,
+  .page-wrapper.gradient-bg form.form p textarea.standard,
+  .page-wrapper.gradient-bg form.form p select {
     color: #ffffff; }
-  body.gradient-bg form.form p select option {
+  .page-wrapper.gradient-bg form.form p select option {
     color: rgba(0, 0, 0, 0.8); }
-  body.gradient-bg form.form p input[type="checkbox"] + label {
+  .page-wrapper.gradient-bg form.form p input[type="checkbox"] + label {
     background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -22px no-repeat;
     background-size: 210%; }
-  body.gradient-bg form.form p input[type="checkbox"]:checked + label {
+  .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label {
     background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -23px no-repeat;
     background-size: 210%; }
-  body.gradient-bg form.form p.submit input {
+  .page-wrapper.gradient-bg form.form p.submit input {
     background-color: #ffffff;
     color: #03494F; }
-  body.gradient-bg form.form p.submit:hover input {
+  .page-wrapper.gradient-bg form.form p.submit:hover input {
     background-color: #f0f0f0; }
 
 /*css specific to white-bg*/
-body.white-bg {
+.page-wrapper.white-bg {
   background: #ffffff; }
-  body.white-bg .cipher_logo {
+  .page-wrapper.white-bg .cipher-logo {
     background-image: url("https://cipherhealth.com/wp-content/uploads/2018/02/cipherlogo_cfoam.svg"); }
-  body.white-bg .page-container h1,
-  body.white-bg .page-container h2,
-  body.white-bg .page-container h3,
-  body.white-bg .page-container h4,
-  body.white-bg .page-container p,
-  body.white-bg span {
+  .page-wrapper.white-bg .page-container h1,
+  .page-wrapper.white-bg .page-container h2,
+  .page-wrapper.white-bg .page-container h3,
+  .page-wrapper.white-bg .page-container h4,
+  .page-wrapper.white-bg .page-container p,
+  .page-wrapper.white-bg span {
     color: rgba(0, 0, 0, 0.7); }
-  body.white-bg .page-container .highlight,
-  body.white-bg .whole-bullet-list li p::before {
+  .page-wrapper.white-bg .page-container .highlight,
+  .page-wrapper.white-bg .bullet-list li p::before {
     color: #f79420; }
-  body.white-bg .title-block span {
+  .page-wrapper.white-bg .title-block span {
     background: #ffffff; }
-  body.white-bg .title-block h2 {
+  .page-wrapper.white-bg .title-block h2 {
     background: -webkit-linear-gradient(left, #18B3A5, #396C99);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
-  body.white-bg .inner-container {
+  .page-wrapper.white-bg .outline-container {
     border-left-color: #18B3A5;
     border-right-color: #396C99;
     border-top-color: transparent;
     border-bottom-color: transparent;
     position: relative; }
-    body.white-bg .inner-container:before, body.white-bg .inner-container:after {
+    .page-wrapper.white-bg .outline-container:before, .page-wrapper.white-bg .outline-container:after {
       content: "";
       width: 101%;
       height: 2px;
       position: absolute;
       left: -0.5%; }
       @media all and (min-width: 520px) and (max-width: 767px) {
-        body.white-bg .inner-container:before, body.white-bg .inner-container:after {
+        .page-wrapper.white-bg .outline-container:before, .page-wrapper.white-bg .outline-container:after {
           width: 100.5%;
           left: -0.3%; } }
       @media all and (min-width: 768px) and (max-width: 1350px) {
-        body.white-bg .inner-container:before, body.white-bg .inner-container:after {
+        .page-wrapper.white-bg .outline-container:before, .page-wrapper.white-bg .outline-container:after {
           width: 100.3%;
           left: -0.2%; } }
       @media all and (min-width: 1350px) {
-        body.white-bg .inner-container:before, body.white-bg .inner-container:after {
+        .page-wrapper.white-bg .outline-container:before, .page-wrapper.white-bg .outline-container:after {
           width: 100.2%;
           left: -0.1%; } }
-    body.white-bg .inner-container:before {
+    .page-wrapper.white-bg .outline-container:before {
       top: -2px;
       background: #18B3A5;
       /* Old browsers */
@@ -802,7 +821,7 @@ body.white-bg {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18B3A5', endColorstr='#396C99',GradientType=1 );
       /* IE6-9 */ }
-    body.white-bg .inner-container:after {
+    .page-wrapper.white-bg .outline-container:after {
       bottom: -2px;
       background: #396C99;
       /* Old browsers */
@@ -814,26 +833,28 @@ body.white-bg {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396C99', endColorstr='#18B3A5',GradientType=1 );
       /* IE6-9 */ }
-    body.white-bg .inner-container .split-image:before {
+    .page-wrapper.white-bg .outline-container .side-image:before {
       background: #ffffff; }
-    body.white-bg .inner-container .split-image:after {
+    .page-wrapper.white-bg .outline-container .side-image:after {
       background: #ffffff; }
-  body.white-bg .paragraph-bullets-icon .whole-bullet-list li .bullet-image {
+  .page-wrapper.white-bg .background-block .background-image-cover {
+    background: #fff; }
+  .page-wrapper.white-bg .bullets-icon .bullet-list li .bullet-image {
     background-color: rgba(0, 0, 0, 0.05); }
-  body.white-bg .paragraph-bullets-noicon .whole-bullet-list li .bullet-image {
+  .page-wrapper.white-bg .bullets-noicon .bullet-list li .bullet-image {
     background-color: #f79420; }
-  body.white-bg .paragraph-bullets-stats .whole-bullet-list .bullet-image .largeText-text,
-  body.white-bg .paragraph-bullets-stats .whole-bullet-list .bullet-image .largeText-symbol,
-  body.white-bg .paragraph-bullets-stats-bgimage .whole-bullet-list .bullet-image .largeText-text,
-  body.white-bg .paragraph-bullets-stats-bgimage .whole-bullet-list .bullet-image .largeText-symbol {
+  .page-wrapper.white-bg .bullets-stats .bullet-list .bullet-image .large-text-text,
+  .page-wrapper.white-bg .bullets-stats .bullet-list .bullet-image .large-text-symbol,
+  .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-text,
+  .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-symbol {
     color: #00b4a4; }
-  body.white-bg form.form p input[type="checkbox"] + label {
+  .page-wrapper.white-bg form.form p input[type="checkbox"] + label {
     background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -26px -22px no-repeat;
     background-size: 210%; }
-  body.white-bg form.form p input[type="checkbox"]:checked + label {
+  .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label {
     background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -2.6px 0px no-repeat;
     background-size: 210%; }
-  body.white-bg form.form p.submit input {
+  .page-wrapper.white-bg form.form p.submit input {
     background: #396C99;
     /* Old browsers */
     background: -moz-linear-gradient(left, #18B3A5, #396C99);
@@ -846,12 +867,14 @@ body.white-bg {
     /* IE6-9 */
     color: #ffffff;
     opacity: 1; }
-  body.white-bg form.form p.submit:hover input {
+  .page-wrapper.white-bg form.form p.submit:hover input {
     opacity: 0.8; }
 
 /*css specific to IE 10*/
 html[data-useragent*='MSIE 10.0'] body,
-html[data-useragent*='rv:11.0'] body {
+html[data-useragent*='MSIE 10.0'] .page-wrapper,
+html[data-useragent*='rv:11.0'] body,
+html[data-useragent*='rv:11.0'] .page-wrapper {
   margin: 0; }
 
 html[data-useragent*='MSIE 10.0'] .title-block,
@@ -868,71 +891,71 @@ html[data-useragent*='rv:11.0'] form.form p input[type="checkbox"] + label {
   background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -27px no-repeat;
   background-size: 210%; }
 
-html[data-useragent*='MSIE 10.0'] body.white-bg .title-block .title-background h2,
-html[data-useragent*='rv:11.0'] body.white-bg .title-block .title-background h2 {
+html[data-useragent*='MSIE 10.0'] .page-wrapper.white-bg .title-block .title-background h2,
+html[data-useragent*='rv:11.0'] .page-wrapper.white-bg .title-block .title-background h2 {
   color: #2d899e; }
 
-html[data-useragent*='MSIE 10.0'] body.white-bg form.form p input[type="checkbox"]:checked + label,
-html[data-useragent*='rv:11.0'] body.white-bg form.form p input[type="checkbox"]:checked + label {
+html[data-useragent*='MSIE 10.0'] .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label,
+html[data-useragent*='rv:11.0'] .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label {
   background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -5px no-repeat;
   background-size: 210%; }
 
-html[data-useragent*='MSIE 10.0'] body.gradient-bg .title-block .title-background h2,
-html[data-useragent*='rv:11.0'] body.gradient-bg .title-block .title-background h2 {
+html[data-useragent*='MSIE 10.0'] .page-wrapper.gradient-bg .title-block .title-background h2,
+html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg .title-block .title-background h2 {
   color: #ffffff; }
 
-html[data-useragent*='MSIE 10.0'] body.gradient-bg form.form p input[type="checkbox"]:checked + label,
-html[data-useragent*='rv:11.0'] body.gradient-bg form.form p input[type="checkbox"]:checked + label {
+html[data-useragent*='MSIE 10.0'] .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label,
+html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label {
   background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -27px no-repeat;
   background-size: 210%; }
 
 /*css specific to browsers that don't support grid css*/
-.page-container.noGrid .inner-container {
+.page-container.noGrid .outline-container {
   float: left; }
 
 .page-container.noGrid .content-block {
   margin-right: 0; }
 
-.page-container.noGrid .split-image,
+.page-container.noGrid .side-image,
 .page-container.noGrid .split-content-block p,
-.page-container.noGrid .form-block,
-.page-container.noGrid .form-block .form-container,
+.page-container.noGrid .form-section,
+.page-container.noGrid .form-section .form-container,
 .page-container.noGrid form.form p select {
   width: 100%; }
 
-.page-container.noGrid .split-text {
+.page-container.noGrid .split-content-block .text {
   margin-left: 0;
   float: left;
   margin-bottom: 0;
   margin-top: 40px; }
   @media all and (min-width: 768px) {
-    .page-container.noGrid .split-text {
+    .page-container.noGrid .split-content-block .text {
       margin-left: 20px; } }
   @media all and (min-width: 768px) and (max-width: 1200px) {
-    .page-container.noGrid .split-text {
+    .page-container.noGrid .split-content-block .text {
       width: 58%; } }
   @media all and (min-width: 1201px) {
-    .page-container.noGrid .split-text {
+    .page-container.noGrid .split-content-block .text {
       width: 54%; } }
 
-.page-container.noGrid .split-image {
+.page-container.noGrid .side-image {
   float: left;
   min-height: 300px;
   margin-left: 0;
   margin-right: 0; }
   @media all and (min-width: 768px) {
-    .page-container.noGrid .split-image {
+    .page-container.noGrid .side-image {
       width: 46%;
       margin-left: -102px;
       margin-right: 20px; } }
   @media all and (min-width: 768px) {
-    .page-container.noGrid .split-image:before, .page-container.noGrid .split-image:after {
-      height: 46px; } }
+    .page-container.noGrid .side-image:before, .page-container.noGrid .side-image:after {
+      height: 40px; } }
 
 .page-container.noGrid .whole-content-block {
   float: left; }
 
-.page-container.noGrid .form-block {
+.page-container.noGrid .form-section {
   float: left;
   margin-left: 0;
   margin-top: 30px; }
