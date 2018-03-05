@@ -1,0 +1,271 @@
+/*css specific to forms*/
+    form.form {
+        position: relative;
+        overflow: hidden;
+        margin-top: 50px;
+    }
+
+    @media all and (min-width: 768px) {
+        form.form {
+            margin-top: 0;
+        }
+    }
+
+    form.form .form-container {
+        max-width: 100%;
+        padding-bottom: 10px;
+        position: relative;
+    }
+
+    @media all and (max-width: 767px) {
+        form.form .form-container {
+            position: relative;
+        }
+    }
+
+    form.form p label {
+        display: block;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        font-weight: 700;
+        padding-top: 2px;
+        padding-bottom: 5px;
+    }
+
+    form.form p input.text,
+    form.form p textarea.standard,
+    form.form p select {
+        width: 175%;
+        font-size: 16px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: none;
+        border: none;
+        border-radius: 0;
+        padding: 10px 18px;
+    }
+
+    @media all and (min-width: 768px) {
+        form.form p input.text,
+        form.form p textarea.standard,
+        form.form p select {
+            width: 100%;
+        }
+    }
+
+    form.form p.errors,
+    form.form p.no-label {
+      text-transform: uppercase;
+      color: #b20000!important;
+    }
+
+    form.form p.errors {
+        background: transparent;
+        padding-left: 0;
+        font-size: 14px;
+    }
+
+    form.form p.no-label {
+      position: absolute;
+      top: 0;
+      margin: 2px 0;
+      width: 100%;
+      text-align: right;
+      font-size: 12px;
+    }
+
+    form.form p select::-ms-expand {
+        display: none;
+    }
+
+    form.form .pd-checkbox .value span {
+        display: block;
+        overflow: hidden;
+    }
+
+    form.form p input[type="checkbox"] {
+        display: none;
+        margin: 6px;
+    }
+
+    form.form p input[type="checkbox"] + label {
+        display: inline-block;
+        text-indent: 31px;
+        height: 20px;
+        margin: 9px 4px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        width: 23px;
+        white-space: nowrap;
+        text-transform: capitalize;
+    }
+
+    form.form p.submit {
+        margin-top: 12px;
+        width: auto;
+        display: inline-block;
+        background: #000;
+        border-radius: 41px;
+        height: auto;
+    }
+
+    form.form p.submit input {
+        padding: 10px 20px;
+        white-space: normal;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        -moz-border-radius: 40px;
+        -webkit-border-radius: 40px;
+        border-radius: 40px;
+        cursor: pointer;
+        border: 0;
+        -webkit-transition: background-color .5s ease;
+        -webkit-appearance: none;
+        transition: all .5s ease;
+    }
+
+    form.form p.pd-select::before {
+        content: '';
+        display: block;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-image: url("https://cipherhealth.com/wp-content/uploads/2017/04/arrow_down.svg");
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        top: 25px;
+        bottom: auto;
+    }
+
+    @media all and (min-width: 768px) {
+        form.form p.pd-select::before {
+            margin-top: 26px;
+            top: 0;
+        }
+    }
+
+/*css specific to landing pages*/
+
+    /*css specific to gradient-bg*/
+    .gradient-bg form.form p input.text,
+    .gradient-bg form.form p textarea.standard,
+    .gradient-bg form.form p select,
+    .gradient-bg form.form p label {
+        color: #ffffff;
+    }
+
+    .gradient-bg form.form p select option {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .gradient-bg form.form p input[type="checkbox"] + label {
+        background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -22px no-repeat;
+        background-size: 210%;
+    }
+
+    .gradient-bg form.form p input[type="checkbox"]:checked + label {
+        background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -23px no-repeat;
+        background-size: 210%;
+    }
+
+    .gradient-bg form.form p.submit input {
+        background-color: #ffffff;
+        color: #03494F;
+    }
+
+    .gradient-bg form.form p.submit:hover input {
+        background-color: #f0f0f0;
+    }
+
+    /*css specific to white-bg*/
+
+    .white-bg form.form p input.text,
+    .white-bg form.form p textarea.standard,
+    .white-bg form.form p select,
+    .white-bg form.form p label {
+        color: rgba(0,0,0,0.7);
+    }
+
+    .white-bg form.form p input[type="checkbox"] + label {
+        background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -26px -22px no-repeat;
+        background-size: 210%;
+    }
+
+    .white-bg form.form p input[type="checkbox"]:checked + label {
+        background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -2.6px 0px no-repeat;
+        background-size: 210%;
+    }
+
+    .white-bg form.form p.submit input {
+        background: #396C99;
+        /* Old browsers */
+        background: -moz-linear-gradient(left, #18B3A5, #396C99);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #18B3A5, #396C99);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #18B3A5, #396C99);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18B3A5', endColorstr='#396C99',GradientType=1 );
+        /* IE6-9 */
+        color: #ffffff;
+        opacity: 1;
+    }
+
+    .white-bg form.form p.submit:hover input {
+        opacity: 0.8;
+    }
+
+    /*css specific to IE 10*/
+    html[data-useragent*='MSIE 10.0'] form.form p input[type="checkbox"] + label,
+    html[data-useragent*='rv:11.0'] form.form p input[type="checkbox"] + label {
+        background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -27px no-repeat;
+        background-size: 210%;
+    }
+
+    html[data-useragent*='MSIE 10.0'] .white-bg .title-block .title-background h2,
+    html[data-useragent*='rv:11.0'] .white-bg .title-block .title-background h2 {
+        color: #2d899e;
+    }
+
+    html[data-useragent*='MSIE 10.0'] .white-bg form.form p input[type="checkbox"]:checked + label,
+    html[data-useragent*='rv:11.0'] .white-bg form.form p input[type="checkbox"]:checked + label {
+        background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -5px no-repeat;
+        background-size: 210%;
+    }
+
+    html[data-useragent*='MSIE 10.0'] .gradient-bg .title-block .title-background h2,
+    html[data-useragent*='rv:11.0'] .gradient-bg .title-block .title-background h2 {
+        color: #ffffff;
+    }
+
+    html[data-useragent*='MSIE 10.0'] .gradient-bg form.form p input[type="checkbox"]:checked + label,
+    html[data-useragent*='rv:11.0'] .gradient-bg form.form p input[type="checkbox"]:checked + label {
+        background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -27px no-repeat;
+        background-size: 210%;
+    }
+
+    /*css specific to browsers that don't support grid css*/
+    .page-container.noGrid .form-section .form-container,
+    .page-container.noGrid form.form p select {
+        width: 100%;
+    }
+
+    .page-container.noGrid .form-section {
+        float: left;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+    .page-container.noGrid form.form p.submit {
+        background: none;
+    }

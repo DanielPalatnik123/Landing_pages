@@ -11,7 +11,8 @@ h1,
 h2,
 h3,
 h4 {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin: 0; }
 
 h1 {
   font-size: 20px; }
@@ -54,6 +55,13 @@ input,
 select,
 textarea {
   font-family: "lato", sans-serif !important; }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none; }
+
+*:focus {
+  outline: none; }
 
 *::-webkit-media-controls-panel {
   display: none !important;
@@ -77,7 +85,7 @@ h1,
 h2,
 h3,
 h4,
-.side-image,
+.image-container,
 .text,
 .bullet-list,
 .video-container {
@@ -85,16 +93,16 @@ h4,
   position: relative; }
 
 .page-container .highlight {
-  font-size: 28px; }
+  font-size: 24px; }
   @media all and (min-width: 520px) and (max-width: 767px) {
     .page-container .highlight {
-      font-size: 36px; } }
+      font-size: 32px; } }
   @media all and (min-width: 768px) and (max-width: 991px) {
     .page-container .highlight {
-      font-size: 28px; } }
+      font-size: 24px; } }
   @media all and (min-width: 992px) {
     .page-container .highlight {
-      font-size: 36px; } }
+      font-size: 32px; } }
 
 .cipher-logo {
   position: absolute;
@@ -102,7 +110,7 @@ h4,
   top: 20px;
   height: 40px;
   width: 40px;
-  animation: fadein 2s; }
+  animation: slidedown 2s, fadein 5s; }
   @media all and (min-width: 520px) {
     .cipher-logo {
       margin-left: 49px; } }
@@ -115,7 +123,7 @@ h4,
   right: 0;
   overflow: hidden;
   min-height: auto;
-  animation: fadein 2s; }
+  animation: slidedown 2s, fadein 5s; }
 
 .outline-container {
   padding: 30px;
@@ -273,74 +281,137 @@ h4,
     .title-block {
       margin-top: 46px; } }
   .title-block h2 {
-    margin: 13px auto; }
-    @media all and (min-width: 520px) {
-      .title-block h2 {
-        margin: 20px auto; } }
+    margin: 0; }
   .title-block .title-background {
     justify-self: center;
     display: inline-block;
     padding: 0 20px;
     font-weight: 700;
-    z-index: 1; }
+    z-index: 1;
+    margin: 13px auto; }
+    @media all and (min-width: 520px) {
+      .title-block .title-background {
+        margin: 20px auto; } }
 
 /*css specific to content types*/
 .large-text-value {
   display: none; }
 
-.side-image {
+.image-container {
   grid-area: sideImage;
   -ms-grid-row: 2;
   margin-right: 0;
-  height: 300px;
   margin-left: 0;
   background-size: cover;
   position: relative;
-  margin-top: 40px; }
+  margin-top: 40px;
+  object-fit: cover;
+  max-height: 100%;
+  display: table; }
   @media all and (min-width: 520px) and (max-width: 767px) {
-    .side-image {
+    .image-container {
       -ms-grid-row: 1;
       -ms-grid-column: 1;
       margin-right: 25px;
-      height: auto;
       margin-left: -102px;
       position: relative;
       margin-top: 0; } }
   @media all and (min-width: 768px) and (max-width: 991px) {
-    .side-image {
+    .image-container {
       -ms-grid-row: 2;
       margin-right: 0;
-      height: 300px;
       margin-left: 0;
       margin-top: 40px; } }
   @media all and (min-width: 992px) {
-    .side-image {
+    .image-container {
       -ms-grid-row: 1;
       -ms-grid-column: 1;
       margin-right: 25px;
       margin-left: -102px;
-      height: auto;
       margin-top: 0; } }
-  .side-image:before, .side-image:after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: -3px;
-    height: 0;
-    width: 100px; }
-    @media all and (min-width: 520px) and (max-width: 767px) {
-      .side-image:before, .side-image:after {
-        height: 40px; } }
-    @media all and (min-width: 768px) and (max-width: 991px) {
-      .side-image:before, .side-image:after {
-        height: 0; } }
-    @media all and (min-width: 992px) {
-      .side-image:before, .side-image:after {
-        height: 40px; } }
-  .side-image:before {
-    top: -40px; }
-  .side-image:after {
-    bottom: -40px; }
+
+.image-container {
+  grid-area: sideImage;
+  -ms-grid-row: 2;
+  margin-right: 0;
+  background-size: cover;
+  position: relative;
+  margin-top: 40px;
+  object-fit: cover;
+  max-height: 100%;
+  display: table; }
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    .image-container {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      margin-right: 25px;
+      position: relative;
+      margin-top: 0; } }
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    .image-container {
+      -ms-grid-row: 2;
+      margin-right: 0;
+      margin-top: 40px; } }
+  @media all and (min-width: 992px) {
+    .image-container {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      margin-right: 25px;
+      margin-top: 0; } }
+
+.image-container {
+  margin-left: 0; }
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    .image-container {
+      margin-left: -102px; } }
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    .image-container {
+      margin-left: 0; } }
+  @media all and (min-width: 992px) {
+    .image-container {
+      margin-left: -102px; } }
+
+.underlayer .image-container {
+  margin-left: -102px; }
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    .underlayer .image-container {
+      margin-left: -102px; } }
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    .underlayer .image-container {
+      margin-left: -102px; } }
+  @media all and (min-width: 992px) {
+    .underlayer .image-container {
+      margin-left: -102px; } }
+
+.side-image {
+  width: 100%; }
+
+.before-image,
+.after-image {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  height: 0;
+  width: 100px; }
+  @media all and (min-width: 520px) and (max-width: 767px) {
+    .before-image,
+    .after-image {
+      height: 40px; } }
+  @media all and (min-width: 768px) and (max-width: 991px) {
+    .before-image,
+    .after-image {
+      height: 0; } }
+  @media all and (min-width: 992px) {
+    .before-image,
+    .after-image {
+      height: 40px; } }
+
+.before-image {
+  top: -40px; }
+
+.after-image {
+  bottom: -37px; }
 
 .image {
   margin-right: 0;
@@ -357,7 +428,7 @@ h4,
   margin: 0;
   z-index: 1; }
   .bullet-list li {
-    margin: 20px 0 40px;
+    margin: 20px 0 30px;
     display: grid;
     align-items: center; }
     .bullet-list li .bullet-image {
@@ -402,31 +473,23 @@ h4,
   left: 0;
   width: 13vw;
   z-index: 0;
-  margin-left: -19vw;
   height: auto; }
   @media all and (min-width: 768px) {
     .underlayer {
       width: 3vw; } }
-  .underlayer .background-image-cover {
-    width: 50vw;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    opacity: .4;
-    left: 0;
-    margin-right: -25.5vw;
-    z-index: 9; }
-  .underlayer .side-image {
+  .underlayer .image-container {
     margin-right: -30.5vw; }
-    .underlayer .side-image:before, .underlayer .side-image:after {
-      content: "";
-      position: absolute;
-      left: -3px;
-      width: 100%;
-      height: 40px; }
-      @media all and (min-width: 992px) {
-        .underlayer .side-image:before, .underlayer .side-image:after {
-          height: 40px; } }
+  .underlayer .before-image,
+  .underlayer .after-image {
+    content: "";
+    position: absolute;
+    left: -3px;
+    width: 100%;
+    height: 40px; }
+    @media all and (min-width: 992px) {
+      .underlayer .before-image,
+      .underlayer .after-image {
+        height: 40px; } }
 
 /*css specific to page specific content*/
 .image-paragraph .split-content-block {
@@ -495,12 +558,12 @@ h4,
 
 .bullets-stats-bgimage .underlayer {
   top: -105px; }
-  .bullets-stats-bgimage .underlayer .side-image {
+  .bullets-stats-bgimage .underlayer .image-container {
     height: 70vh; }
 
 .video-image .underlayer {
   top: 118px; }
-  .video-image .underlayer .side-image {
+  .video-image .underlayer .image-container {
     height: 34vh; }
 
 /*css specific to forms*/
@@ -511,109 +574,6 @@ h4,
       -ms-grid-row: 1;
       -ms-grid-column: 2;
       margin-left: 25px; } }
-
-form.form {
-  position: relative;
-  overflow: hidden;
-  margin-top: 50px; }
-  @media all and (min-width: 768px) {
-    form.form {
-      margin-top: 0; } }
-  form.form .form-container {
-    width: 60vw;
-    padding-bottom: 10px; }
-    @media all and (max-width: 767px) {
-      form.form .form-container {
-        position: relative;
-        width: 100%; } }
-  form.form p label {
-    display: block;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    padding-top: 2px;
-    padding-bottom: 5px; }
-  form.form p input.text,
-  form.form p textarea.standard,
-  form.form p select {
-    width: 175%;
-    font-size: 16px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    color: rgba(0, 0, 0, 0.8);
-    background-color: rgba(0, 0, 0, 0.1);
-    background-image: none;
-    border: none;
-    border-radius: 0;
-    padding: 10px 18px; }
-    @media all and (min-width: 768px) {
-      form.form p input.text,
-      form.form p textarea.standard,
-      form.form p select {
-        width: 98%; } }
-  form.form p select::-ms-expand {
-    display: none; }
-  form.form .pd-checkbox .value span {
-    display: block;
-    overflow: hidden; }
-  form.form p input[type="checkbox"] {
-    display: none;
-    margin: 6px; }
-    form.form p input[type="checkbox"] + label {
-      display: inline-block;
-      text-indent: 31px;
-      height: 20px;
-      margin: 9px 4px 0 0;
-      vertical-align: middle;
-      cursor: pointer;
-      width: 23px;
-      white-space: nowrap;
-      text-transform: capitalize; }
-  form.form p.submit {
-    margin-top: 12px;
-    width: auto;
-    display: inline-block;
-    background: #000;
-    border-radius: 41px;
-    height: auto; }
-    form.form p.submit input {
-      padding: 10px 20px;
-      white-space: normal;
-      text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      -moz-border-radius: 40px;
-      -webkit-border-radius: 40px;
-      border-radius: 40px;
-      cursor: pointer;
-      border: 0;
-      -webkit-transition: background-color .5s ease;
-      -webkit-appearance: none;
-      transition: all .5s ease; }
-  form.form p .select_arrow {
-    display: none; }
-  form.form p.pd-select .select_arrow {
-    display: block;
-    pointer-events: none;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-image: url("https://cipherhealth.com/wp-content/uploads/2017/04/arrow_down.svg");
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 3px; }
-    @media all and (min-width: 768px) {
-      form.form p.pd-select .select_arrow {
-        bottom: auto;
-        right: 0px;
-        margin-top: 26px; } }
 
 /*css specific to the footer*/
 span.footer-text {
@@ -629,40 +589,59 @@ span.footer-text {
       font-size: 14px; } }
 
 /*css specific to the fadein transition*/
-@keyframes fadein {
+@keyframes slidedown {
   from {
-    opacity: 0;
     margin-top: -50px; }
   to {
-    opacity: 1;
     margin-top: 0; } }
+
+@-moz-keyframes slidedown {
+  /* Firefox */
+  from {
+    margin-top: -50px; }
+  to {
+    margin-top: 0; } }
+
+@-webkit-keyframes slidedown {
+  /* Safari and Chrome */
+  from {
+    margin-top: -50px; }
+  to {
+    margin-top: 0; } }
+
+@-o-keyframes slidedown {
+  /* Opera */
+  from {
+    margin-top: -50px; }
+  to {
+    margin-top: 0; } }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 @-moz-keyframes fadein {
   /* Firefox */
   from {
-    opacity: 0;
-    margin-top: -50px; }
+    opacity: 0; }
   to {
-    opacity: 1;
-    margin-top: 0; } }
+    opacity: 1; } }
 
 @-webkit-keyframes fadein {
   /* Safari and Chrome */
   from {
-    opacity: 0;
-    margin-top: -50px; }
+    opacity: 0; }
   to {
-    opacity: 1;
-    margin-top: 0; } }
+    opacity: 1; } }
 
 @-o-keyframes fadein {
   /* Opera */
   from {
-    opacity: 0;
-    margin-top: -50px; }
+    opacity: 0; }
   to {
-    opacity: 1;
-    margin-top: 0; } }
+    opacity: 1; } }
 
 /*css specific to gradient-bg*/
 .page-wrapper.gradient-bg {
@@ -704,7 +683,7 @@ span.footer-text {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01b3cd', endColorstr='#01b6b6',GradientType=1 );
     /* IE6-9 */ }
-  .page-wrapper.gradient-bg .side-image:before {
+  .page-wrapper.gradient-bg .before-image {
     background: #00b2d6;
     /* Old browsers */
     background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
@@ -715,18 +694,7 @@ span.footer-text {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
     /* IE6-9 */ }
-  .page-wrapper.gradient-bg .side-image:after {
-    background: #00b2d6;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #00b2d6 70%, transparent 70%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #00b2d6 70%, transparent 70%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2d6', endColorstr='transparent',GradientType=1 );
-    /* IE6-9 */ }
-  .page-wrapper.gradient-bg .underlayer .background-image-cover {
+  .page-wrapper.gradient-bg .after-image {
     background: #00b2d6;
     /* Old browsers */
     background: -moz-linear-gradient(left, #00b2d6 70%, transparent 70%);
@@ -746,23 +714,6 @@ span.footer-text {
   .page-wrapper.gradient-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-text,
   .page-wrapper.gradient-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-symbol {
     color: #f7d7a0; }
-  .page-wrapper.gradient-bg form.form p input.text,
-  .page-wrapper.gradient-bg form.form p textarea.standard,
-  .page-wrapper.gradient-bg form.form p select {
-    color: #ffffff; }
-  .page-wrapper.gradient-bg form.form p select option {
-    color: rgba(0, 0, 0, 0.8); }
-  .page-wrapper.gradient-bg form.form p input[type="checkbox"] + label {
-    background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -22px no-repeat;
-    background-size: 210%; }
-  .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label {
-    background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -23px no-repeat;
-    background-size: 210%; }
-  .page-wrapper.gradient-bg form.form p.submit input {
-    background-color: #ffffff;
-    color: #03494F; }
-  .page-wrapper.gradient-bg form.form p.submit:hover input {
-    background-color: #f0f0f0; }
 
 /*css specific to white-bg*/
 .page-wrapper.white-bg {
@@ -833,12 +784,10 @@ span.footer-text {
       /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396C99', endColorstr='#18B3A5',GradientType=1 );
       /* IE6-9 */ }
-    .page-wrapper.white-bg .outline-container .side-image:before {
+    .page-wrapper.white-bg .outline-container .before-image {
       background: #ffffff; }
-    .page-wrapper.white-bg .outline-container .side-image:after {
+    .page-wrapper.white-bg .outline-container .after-image {
       background: #ffffff; }
-  .page-wrapper.white-bg .background-block .background-image-cover {
-    background: #fff; }
   .page-wrapper.white-bg .bullets-icon .bullet-list li .bullet-image {
     background-color: rgba(0, 0, 0, 0.05); }
   .page-wrapper.white-bg .bullets-noicon .bullet-list li .bullet-image {
@@ -848,27 +797,6 @@ span.footer-text {
   .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-text,
   .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-symbol {
     color: #00b4a4; }
-  .page-wrapper.white-bg form.form p input[type="checkbox"] + label {
-    background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -26px -22px no-repeat;
-    background-size: 210%; }
-  .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label {
-    background: url(https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg) -2.6px 0px no-repeat;
-    background-size: 210%; }
-  .page-wrapper.white-bg form.form p.submit input {
-    background: #396C99;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #18B3A5, #396C99);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #18B3A5, #396C99);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #18B3A5, #396C99);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18B3A5', endColorstr='#396C99',GradientType=1 );
-    /* IE6-9 */
-    color: #ffffff;
-    opacity: 1; }
-  .page-wrapper.white-bg form.form p.submit:hover input {
-    opacity: 0.8; }
 
 /*css specific to IE 10*/
 html[data-useragent*='MSIE 10.0'] body,
@@ -886,28 +814,13 @@ html[data-useragent*='rv:11.0'] .title-block {
     html[data-useragent*='rv:11.0'] .title-block {
       margin: 46px 0; } }
 
-html[data-useragent*='MSIE 10.0'] form.form p input[type="checkbox"] + label,
-html[data-useragent*='rv:11.0'] form.form p input[type="checkbox"] + label {
-  background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -26px -27px no-repeat;
-  background-size: 210%; }
-
 html[data-useragent*='MSIE 10.0'] .page-wrapper.white-bg .title-block .title-background h2,
 html[data-useragent*='rv:11.0'] .page-wrapper.white-bg .title-block .title-background h2 {
   color: #2d899e; }
 
-html[data-useragent*='MSIE 10.0'] .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label,
-html[data-useragent*='rv:11.0'] .page-wrapper.white-bg form.form p input[type="checkbox"]:checked + label {
-  background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -5px no-repeat;
-  background-size: 210%; }
-
 html[data-useragent*='MSIE 10.0'] .page-wrapper.gradient-bg .title-block .title-background h2,
 html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg .title-block .title-background h2 {
   color: #ffffff; }
-
-html[data-useragent*='MSIE 10.0'] .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label,
-html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg form.form p input[type="checkbox"]:checked + label {
-  background: url("https://cipherhealth.com/wp-content/uploads/2018/02/sprite_checkbox.svg") -2.6px -27px no-repeat;
-  background-size: 210%; }
 
 /*css specific to browsers that don't support grid css*/
 .page-container.noGrid .outline-container {
@@ -916,11 +829,9 @@ html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg form.form p input[type
 .page-container.noGrid .content-block {
   margin-right: 0; }
 
-.page-container.noGrid .side-image,
+.page-container.noGrid .image-container,
 .page-container.noGrid .split-content-block p,
-.page-container.noGrid .form-section,
-.page-container.noGrid .form-section .form-container,
-.page-container.noGrid form.form p select {
+.page-container.noGrid .form-section {
   width: 100%; }
 
 .page-container.noGrid .split-content-block .text {
@@ -938,18 +849,18 @@ html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg form.form p input[type
     .page-container.noGrid .split-content-block .text {
       width: 54%; } }
 
-.page-container.noGrid .side-image {
+.page-container.noGrid .image-container {
   float: left;
   min-height: 300px;
   margin-left: 0;
   margin-right: 0; }
   @media all and (min-width: 768px) {
-    .page-container.noGrid .side-image {
+    .page-container.noGrid .image-container {
       width: 46%;
       margin-left: -102px;
       margin-right: 20px; } }
   @media all and (min-width: 768px) {
-    .page-container.noGrid .side-image:before, .page-container.noGrid .side-image:after {
+    .page-container.noGrid .image-container:before, .page-container.noGrid .image-container:after {
       height: 40px; } }
 
 .page-container.noGrid .whole-content-block {
@@ -959,6 +870,3 @@ html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg form.form p input[type
   float: left;
   margin-left: 0;
   margin-top: 30px; }
-
-.page-container.noGrid form.form p.submit {
-  background: none; }

@@ -53,6 +53,12 @@
   })
 })();
 
+(function appendBeforeAfter(){
+  $(function() {
+    $('.side-image').before('<div class="before-image"></div>');
+    $('.side-image').after('<div class="after-image"></div>');
+  });
+})()
 
 function largeTextFontSize(element,container,ratio,max) {
   var thisValue = $(element).find('.large-text-value')
@@ -120,7 +126,7 @@ function launchFontSizeBullets() {
       var theseBullets = $(element).find('.bullet-image')
 
       theseBullets.map(function(innerIndex,innerElement,container,ratio) {
-        largeTextFontSize(innerElement,'.bullet-list',3.5, 120)
+        largeTextFontSize(innerElement,'.bullet-list',3.5, 96)
       });
     }
   })
