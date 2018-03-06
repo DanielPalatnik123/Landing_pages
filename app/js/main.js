@@ -188,3 +188,11 @@ function launchAnimationBullets() {
 }
 
 $(window).on('load', launchAnimationBullets);
+
+
+
+function showPage() {
+  $('.page-cover').hide()
+}
+
+setTimeout(showPage, 0);

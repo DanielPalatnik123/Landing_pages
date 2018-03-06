@@ -116,6 +116,13 @@ h4,
       margin-left: 49px; } }
 
 /*css specific to containers*/
+.page-cover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99; }
+
 .page-container {
   top: 0;
   bottom: 0;
@@ -306,7 +313,6 @@ h4,
   position: relative;
   margin-top: 40px;
   object-fit: cover;
-  max-height: 100%;
   display: table; }
   @media all and (min-width: 520px) and (max-width: 767px) {
     .image-container {
@@ -328,35 +334,6 @@ h4,
       -ms-grid-column: 1;
       margin-right: 25px;
       margin-left: -102px;
-      margin-top: 0; } }
-
-.image-container {
-  grid-area: sideImage;
-  -ms-grid-row: 2;
-  margin-right: 0;
-  background-size: cover;
-  position: relative;
-  margin-top: 40px;
-  object-fit: cover;
-  max-height: 100%;
-  display: table; }
-  @media all and (min-width: 520px) and (max-width: 767px) {
-    .image-container {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      margin-right: 25px;
-      position: relative;
-      margin-top: 0; } }
-  @media all and (min-width: 768px) and (max-width: 991px) {
-    .image-container {
-      -ms-grid-row: 2;
-      margin-right: 0;
-      margin-top: 40px; } }
-  @media all and (min-width: 992px) {
-    .image-container {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      margin-right: 25px;
       margin-top: 0; } }
 
 .image-container {
@@ -797,6 +774,13 @@ span.footer-text {
   .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-text,
   .page-wrapper.white-bg .bullets-stats-bgimage .bullet-list .bullet-image .large-text-symbol {
     color: #00b4a4; }
+
+/*css specific to Firefox*/
+@-moz-document url-prefix() {
+  .image-container {
+    display: block; }
+  .after-image {
+    display: none; } }
 
 /*css specific to IE 10*/
 html[data-useragent*='MSIE 10.0'] body,
