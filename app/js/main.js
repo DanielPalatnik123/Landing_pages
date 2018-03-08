@@ -84,7 +84,7 @@ function largeTextFontSize(element,container,ratio,max) {
 
 
 function launchFontSizeTitle() {
-  largeTextFontSize($('.content-title')[0],'.content-section',0.6,88);
+  largeTextFontSize($('.content-title')[0],'.content-section',0.7,75);
 }
 
 
@@ -126,7 +126,7 @@ function launchFontSizeBullets() {
       var theseBullets = $(element).find('.bullet-image')
 
       theseBullets.map(function(innerIndex,innerElement,container,ratio) {
-        largeTextFontSize(innerElement,'.bullet-list',3.5, 96)
+        largeTextFontSize(innerElement,'.bullet-list',4.5, 96)
       });
     }
   })
