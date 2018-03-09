@@ -153,6 +153,10 @@
         }
     }
 
+    form.form .error .no-label {
+      color: #b20000;
+    }
+
 /*css specific to landing pages*/
 
     /*css specific to gradient-bg*/

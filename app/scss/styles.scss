@@ -122,11 +122,11 @@ h4,
     font-size: 32px;
   }
 
-  @media all and (min-width: 768px) and (max-width: 991px) {
+  @media all and (min-width: 768px) and (max-width: 990px) {
     font-size: 24px;
   }
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 991px) {
     font-size: 32px;
   }
 
@@ -209,12 +209,12 @@ h4,
       -ms-grid-column: 2;
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       margin-left: 0;
       -ms-grid-row: 1;
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       margin-left: 25px;
       -ms-grid-row: 1;
       -ms-grid-column: 2;
@@ -254,14 +254,14 @@ h4,
       -ms-grid-columns: 50% 50%;
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       grid-template-columns: 100%;
       -ms-grid-columns: 100%;
       grid-template-rows: 50% 50%;
       -ms-grid-rows: 50% 50%;
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       grid-template-rows: 100%;
       -ms-grid-rows: 100%;
       grid-template-columns: 50% 50%;
@@ -289,14 +289,14 @@ h4,
       -ms-grid-columns: 60% 40%;
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       grid-template-columns: 100%;
       -ms-grid-columns: 100%;
       grid-template-rows: 60% 40%;
       -ms-grid-rows: 60% 40%;
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       grid-template-rows: 100%;
       -ms-grid-rows: 100%;
       grid-template-columns: 60% 40%;
@@ -324,14 +324,14 @@ h4,
       -ms-grid-columns: 40% 60%;
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       grid-template-columns: 100%;
       -ms-grid-columns: 100%;
       grid-template-rows: 40% 60%;
       -ms-grid-rows: 40% 60%;
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       grid-template-rows: 100%;
       -ms-grid-rows: 100%;
       grid-template-columns: 40% 60%;
@@ -401,14 +401,14 @@ h4,
     margin-top: 0;
   }
 
-  @media all and (min-width: 768px) and (max-width: 991px) {
+  @media all and (min-width: 768px) and (max-width: 990px) {
     -ms-grid-row: 2;
     margin-right: 0;
     margin-left: 0;
     margin-top: 40px;
   }
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 991px) {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     margin-right: 25px;
@@ -424,11 +424,11 @@ h4,
     margin-left: -102px;
   }
 
-  @media all and (min-width: 768px) and (max-width: 991px) {
+  @media all and (min-width: 768px) and (max-width: 990px) {
     margin-left: 0;
   }
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 991px) {
     margin-left: -102px;
   }
 }
@@ -440,11 +440,11 @@ h4,
     margin-left: -102px;
   }
 
-  @media all and (min-width: 768px) and (max-width: 991px) {
+  @media all and (min-width: 768px) and (max-width: 990px) {
     margin-left: -102px;
   }
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 991px) {
     margin-left: -102px;
   }
 }
@@ -466,11 +466,11 @@ h4,
     height: 40px;
   }
 
-  @media all and (min-width: 768px) and (max-width: 991px) {
+  @media all and (min-width: 768px) and (max-width: 990px) {
     height: 0;
   }
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 991px) {
     height: 40px;
   }
 }
@@ -480,7 +480,7 @@ h4,
 }
 
 .after-image {
-  bottom: -37px;
+  bottom: -36px;
 }
 
 .image {
@@ -553,7 +553,7 @@ h4,
     width: 165%;
     height: auto;
 
-    @media all and (min-width: 992px) and (max-width: 1200px) {
+    @media all and (min-width: 991px) and (max-width: 1200px) {
       width: 120%;
     }
 
@@ -590,7 +590,7 @@ h4,
       width: 100%;
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       height: 40px;
     }
   }
@@ -609,13 +609,13 @@ h4,
         "sideImage splitText";
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       grid-template-areas:
         "splitText"
         "sideImage";
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       grid-template-areas:
         "sideImage splitText";
     }
@@ -659,12 +659,12 @@ h4,
         ". splitText";
     }
 
-    @media all and (min-width: 768px) and (max-width: 991px) {
+    @media all and (min-width: 768px) and (max-width: 990px) {
       grid-template-areas:
       ". splitText";
     }
 
-    @media all and (min-width: 992px) {
+    @media all and (min-width: 991px) {
       grid-template-areas:
         ". splitText";
     }
@@ -731,7 +731,7 @@ h4,
 
 .video-image {
   .underlayer {
-    top: 118px;
+    top: 60px;
 
     .image-container {
       height: 34vh;
@@ -880,7 +880,7 @@ span.footer-text {
   .page-container h4,
   .page-container p,
   span {
-    color: #ffffff!important;
+    color: #ffffff;
   }
 
   .page-container .highlight,
@@ -1156,8 +1156,13 @@ html[data-useragent*='rv:11.0'] {
 
 /*css specific to browsers that don't support grid css*/
 
-.page-container.noGrid {
-  .outline-container {
+.page-wrapper.noGrid {
+
+  .outline-container,
+  .split-content-block .text,
+  .split-content-block .image-container,
+  .whole-content-block,
+  .content-section {
     float: left;
   }
 
@@ -1165,15 +1170,61 @@ html[data-useragent*='rv:11.0'] {
     margin-right: 0;
   }
 
-  .image-container,
-  .split-content-block p,
-  .form-section {
+  .form-section,
+  .content-section {
     width: 100%;
+  }
+
+  .content-section {
+    @media all and (min-width: 768px) {
+      padding-right: 5%;
+    }
+  }
+
+  .col-40-60 {
+    .content-section {
+      @media all and (min-width: 768px) {
+        width: 40%;
+      }
+    }
+
+    .form-section {
+      @media all and (min-width: 768px) {
+        width: 55%;
+      }
+    }
+  }
+
+  .col-50-50 {
+    .content-section {
+      @media all and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    .form-section {
+      @media all and (min-width: 768px) {
+        width: 45%;
+      }
+    }
+  }
+
+  .col-60-40 {
+    .content-section {
+      @media all and (min-width: 768px) {
+        width: 60%;
+      }
+    }
+
+    .form-section {
+      @media all and (min-width: 768px) {
+        width: 35%;
+      }
+    }
   }
 
   .split-content-block .text {
     margin-left: 0;
-    float: left;
     margin-bottom: 0;
     margin-top: 40px;
 
@@ -1190,8 +1241,12 @@ html[data-useragent*='rv:11.0'] {
     }
   }
 
+  .image-container,
+  .split-content-block p {
+    width: 100%;
+  }
+
   .image-container {
-    float: left;
     min-height: 300px;
     margin-left: 0;
     margin-right: 0;
@@ -1202,32 +1257,117 @@ html[data-useragent*='rv:11.0'] {
       margin-right: 20px;
     }
 
-    &:before,
-    &:after {
-      @media all and (min-width: 768px) {
-        height: 40px;
+    .before-image,
+    .after-image {
+      display: none;
+    }
+  }
+
+  .underlayer {
+    width: 52vw;
+
+    .image-container {
+      margin-left: -102px;
+      margin-right: 20px;
+
+      @media all and (min-width: 520px) {
+        max-width: 65%;
       }
     }
   }
 
-  .whole-content-block {
-    float: left;
+  .image-paragraph {
+    .image-container {
+      margin-top: 40px;
+    }
   }
+
+  .image-paragraph,
+  .full-width-image {
+    .image-container {
+      img {
+        max-height: auto;
+        width: 100%;
+
+        @media all and (min-width: 520px) and (max-width: 767px) {
+          max-height: 400px;
+          width: auto;
+        }
+
+        @media all and (min-width: 768px) {
+          max-height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
 
   .bullet-list li {
     .bullet-text,
     .bullet-image {
-      float: left;
-    }
-
-    .bullet-text {
-      width: 67%;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 
   .form-section {
     float: left;
     margin-left: 0;
-    margin-top: 30px;
+  }
+
+  .bullets-icon {
+    .bullet-list li .bullet-text {
+      max-width: 50%;
+
+      @media all and (min-width: 520px) {
+        max-width: 65%;
+      }
+
+      @media all and (min-width: 768px) {
+        max-width: 68%;
+      }
+
+      @media all and (min-width: 991px) {
+        max-width: 71%;
+      }
+
+      @media all and (min-width: 991px) {
+        max-width: 75%;
+      }
+    }
+  }
+
+  .bullets-noicon {
+    .bullet-list li .bullet-text {
+      max-width: 85%;
+
+      @media all and (min-width: 520px) {
+        max-width: 90%;
+      }
+    }
+  }
+
+  .bullets-stats,
+  .bullets-stats-bgimage {
+    .bullet-list li .bullet-text {
+      max-width: 46%;
+
+      @media all and (min-width: 520px) {
+        max-width: 58%;
+      }
+
+      @media all and (min-width: 768px) {
+        max-width: 60%;
+      }
+
+      @media all and (min-width: 991px) {
+        max-width: 64%;
+      }
+
+      @media all and (min-width: 1200px) {
+        max-width: 68%;
+      }
+    }
   }
 }

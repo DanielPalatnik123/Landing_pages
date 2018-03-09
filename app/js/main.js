@@ -32,9 +32,20 @@
   var vals = Object.keys(containerStyle).map(function(key) {
       return containerStyle[key];
   });
-  if (vals.indexOf("grid") <= 0) {
-    outerContainer.className += " noGrid";
+
+
+
+  function search(nameKey, myArray){
+
+    for (var i=0; i < myArray.length; i++) {
+      console.log(myArray[i].toString().indexOf(nameKey.toString()))
+      if (myArray[i].toString().indexOf(nameKey.toString()) <= -1) {
+        outerContainer.className += " noGrid";
+      }
+    }
   }
+
+  var resultObject = search("grid", vals);
 })();
 
 
