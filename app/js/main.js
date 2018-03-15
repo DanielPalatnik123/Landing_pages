@@ -32,20 +32,20 @@
   var vals = Object.keys(containerStyle).map(function(key) {
       return containerStyle[key];
   });
+  var hasGrid = false;
 
+  $(containerStyle).map(function(index,element) {
+    var tryGrid = new RegExp("grid-");
+    var tryGridIE = new RegExp("msGrid");
 
-
-  function search(nameKey, myArray){
-
-    for (var i=0; i < myArray.length; i++) {
-      console.log(myArray[i].toString().indexOf(nameKey.toString()))
-      if (myArray[i].toString().indexOf(nameKey.toString()) <= -1) {
-        outerContainer.className += " noGrid";
-      }
+    if (tryGrid.test(element) || tryGridIE.test(element)) {
+      hasGrid = true;
     }
-  }
+  })
 
-  var resultObject = search("grid", vals);
+  if (hasGrid === false) {
+    outerContainer.className += " noGrid";
+  }
 })();
 
 
@@ -64,12 +64,19 @@
   })
 })();
 
-(function appendBeforeAfter(){
-  $(function() {
-    $('.side-image').before('<div class="before-image"></div>');
-    $('.side-image').after('<div class="after-image"></div>');
-  });
-})()
+function wrapImageHeight(){
+  var wrapTextBlock = $('.image-paragraph-wrap-around .whole-content-block')
+  var thisValueFontSize = parseInt(wrapTextBlock[0].clientHeight)
+
+  $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
+  $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
+  $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
+
+}
+
+// setTimeout(wrapImageHeight, 0);
+$(window).on('load', wrapImageHeight);
+$(window).on('resize', wrapImageHeight);
 
 function largeTextFontSize(element,container,ratio,max) {
   var thisValue = $(element).find('.large-text-value')
@@ -119,6 +126,7 @@ function animateCounters (counterItem) {
   });
 
  function commaSeparateNumber(val) {
+
     while (/(\d+)(\d{3})/.test(val.toString())){
       val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
