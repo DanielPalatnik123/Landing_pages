@@ -489,6 +489,7 @@ h4,
     width: auto;
     float: left;
     max-height: 26vw;
+    max-width: 50%;
     padding-right: 40px;
     padding-bottom: 16px; }
 

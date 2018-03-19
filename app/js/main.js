@@ -71,12 +71,12 @@ function wrapImageHeight(){
   $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
   $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
   $('.wrap-around-image-container .side-image').css('max-height',wrapTextBlock[0].clientHeight)
-
 }
 
-// setTimeout(wrapImageHeight, 0);
-$(window).on('load', wrapImageHeight);
-$(window).on('resize', wrapImageHeight);
+if ($('.wrap-around-image-container').length > 0) {
+  $(window).on('load', wrapImageHeight);
+  $(window).on('resize', wrapImageHeight);
+}
 
 function largeTextFontSize(element,container,ratio,max) {
   var thisValue = $(element).find('.large-text-value')
@@ -105,36 +105,32 @@ function launchFontSizeTitle() {
   largeTextFontSize($('.content-title')[0],'.content-section',0.7,75);
 }
 
-
 $(window).on('load', launchFontSizeTitle);
 $(window).on('resize', launchFontSizeTitle);
 
 
+function startCounter(){
 
-// Animate the counters
-function animateCounters (counterItem) {
-  var counterTarget = $(counterItem).find(".large-text-text");
-  var counterVal = $(counterItem).find(".large-text-value").html();
-  var counterValParsed = parseInt(counterVal)
-  $({someValue: 0}).animate({someValue: counterValParsed}, {
-      duration: 1800,
-      easing:'swing', // can be anything
-      step: function() { // called on every step
-        // Update the element's text with rounded-up value:
-        counterTarget.text(commaSeparateNumber(Math.round(this.someValue)));
-      }
-  });
+  $(".counter li").each(function (index, element) {
+    var thisText = $(this).find(".large-text-text");
+    var thisValue = $(this).find(".large-text-value");
 
- function commaSeparateNumber(val) {
-
-    while (/(\d+)(\d{3})/.test(val.toString())){
-      val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    return val;
-  }
+  	thisValue.each(function (index) {
+          var size = $(this).text().split(".")[1] ? $(this).text().split(".")[1].length : 0;
+  	    $(this).prop('Counter',0).animate({
+  	        Counter: $(this).text()
+  	    }, {
+  	        duration: 2000,
+  	        easing: 'swing',
+  	        step: function (now) {
+                thisText.text(parseFloat(now).toFixed(size));
+  	        }
+  	    });
+  	});
+  })
 }
 
-
+startCounter();
 
 function launchFontSizeBullets() {
 
@@ -189,24 +185,24 @@ $(window).on('resize', launchWidthBullets);
 
 
 
-function launchAnimationBullets() {
-
-  $('.content-block').map(function(index,element) {
-
-    if (($(element).find('.large-text-value').length > 0) && ($(element).find('.bullet-image').length > 0)) {
-      var theseBullets = $(element).find('.bullet-image')
-
-      theseBullets.map(function(innerIndex,innerElement,container,ratio) {
-        var thisCounter = $(innerElement).find('.bullet-image');
-        var thisCounterVal = $(innerElement).find('.bullet-image .large-text-value');
-        animateCounters(innerElement);
-
-      });
-    }
-  })
-}
-
-$(window).on('load', launchAnimationBullets);
+// function launchAnimationBullets() {
+//
+//   $('.content-block').map(function(index,element) {
+//
+//     if (($(element).find('.large-text-value').length > 0) && ($(element).find('.bullet-image').length > 0)) {
+//       var theseBullets = $(element).find('.bullet-image')
+//
+//       theseBullets.map(function(innerIndex,innerElement,container,ratio) {
+//         var thisCounter = $(innerElement).find('.bullet-image');
+//         var thisCounterVal = $(innerElement).find('.bullet-image .large-text-value');
+//         animateCounters(innerElement);
+//
+//       });
+//     }
+//   })
+// }
+//
+// $(window).on('load', launchAnimationBullets);
 
 
 
