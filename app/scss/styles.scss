@@ -107,7 +107,7 @@ h2,
 h3,
 h4,
 .offset-image-container,
-.text,
+.text-container,
 .bullet-list,
 .video-container {
   z-index: 1;
@@ -185,12 +185,16 @@ h4,
     margin-right: 25px;
     -ms-grid-column: 1;
   }
+
+  p {
+    padding: 5px 0;
+  }
 }
 
 
 .whole-content-block,
 .split-content-block {
-  margin-top: 40px;
+  margin-top: 35px;
   position: relative;
 }
 
@@ -198,7 +202,7 @@ h4,
   display: grid;
   display: -ms-grid;
 
-  .text {
+  .text-container {
     grid-area: splitText;
     -ms-grid-row: 1;
     margin-left: 0;
@@ -388,7 +392,7 @@ h4,
   margin-left: 0;
   background-size: cover;
   position: relative;
-  margin-top: 40px;
+  margin-top: 35px;
   height: 100%;
   // object-fit: cover;
   // display: table;
@@ -408,7 +412,7 @@ h4,
     -ms-grid-row: 2;
     margin-right: 0;
     margin-left: 0;
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   @media all and (min-width: 991px) {
@@ -483,7 +487,7 @@ h4,
   z-index: 1;
 
   li {
-    margin: 20px 0 30px;
+    margin: 17px 0 27px;
     display: grid;
     display: -ms-grid;
     align-items: center;
@@ -519,7 +523,7 @@ h4,
       -ms-grid-row-align: center;
 
       h3 {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
       }
     }
   }
@@ -696,7 +700,7 @@ h4,
     }
   }
 
-  .split-content-block .text {
+  .split-content-block .text-container {
     margin-left: 25px;
   }
 }
@@ -718,7 +722,7 @@ h4,
 .bullets-noicon {
   .bullet-list {
     li {
-      margin: 20px 0;
+      margin: 17px 0;
       grid-template-columns: 8px auto;
       -ms-grid-columns:8px auto;
 
@@ -1187,7 +1191,7 @@ html[data-useragent*='rv:11.0'] {
 
   .image-paragraph-wrap-around,
   .outline-container,
-  .split-content-block .text,
+  .split-content-block p,
   .split-content-block .offset-image-container,
   .whole-content-block,
   .content-section {
@@ -1251,10 +1255,10 @@ html[data-useragent*='rv:11.0'] {
     }
   }
 
-  .split-content-block .text {
+  .split-content-block .text-container {
     margin-left: 0;
     margin-bottom: 0;
-    margin-top: 40px;
+    margin-top: 35px;
 
     @media all and (min-width: 768px) {
       margin-left: 20px;
@@ -1270,7 +1274,7 @@ html[data-useragent*='rv:11.0'] {
   }
 
   .offset-image-container,
-  .split-content-block p {
+  .split-content-block .text-container {
     width: 100%;
   }
 
@@ -1316,7 +1320,7 @@ html[data-useragent*='rv:11.0'] {
   }
 
   .offset-image-container {
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   .image-paragraph-offset,

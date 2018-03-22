@@ -86,6 +86,18 @@ function largeTextFontSize(element,container,ratio,max) {
   var valueWidth = thisValue.width()
   var containerWidth = $(container).width()
   var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/ratio
+  // 
+  // var widdth = parseInt(window.getComputedStyle(window).getPropertyValue("width"))
+  //
+  //
+  // console.log(widdth)
+  // console.log(containerWidth)
+  // console.log(valueWidth)
+  // console.log(thisValueFontSize)
+  // // console.log(ratio)
+  // console.log(resultingValueFontSize)
+  // console.log('a')
+
 
   if (resultingValueFontSize >= max) {
     $(thisText).css('font-size',max)
