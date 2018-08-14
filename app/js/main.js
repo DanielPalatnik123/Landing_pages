@@ -86,17 +86,6 @@ function largeTextFontSize(element,container,ratio,max) {
   var valueWidth = thisValue.width()
   var containerWidth = $(container).width()
   var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/ratio
-  // 
-  // var widdth = parseInt(window.getComputedStyle(window).getPropertyValue("width"))
-  //
-  //
-  // console.log(widdth)
-  // console.log(containerWidth)
-  // console.log(valueWidth)
-  // console.log(thisValueFontSize)
-  // // console.log(ratio)
-  // console.log(resultingValueFontSize)
-  // console.log('a')
 
 
   if (resultingValueFontSize >= max) {
@@ -121,6 +110,13 @@ $(window).on('load', launchFontSizeTitle);
 $(window).on('resize', launchFontSizeTitle);
 
 
+function commaSeparateNumber(val){
+   while (/(\d+)(\d{3})/.test(val.toString())){
+     val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+   }
+   return val;
+ }
+
 function startCounter(){
 
   $(".counter li").each(function (index, element) {
@@ -135,12 +131,18 @@ function startCounter(){
   	        duration: 2000,
   	        easing: 'swing',
   	        step: function (now) {
-                thisText.text(parseFloat(now).toFixed(size));
+                thisText.text(commaSeparateNumber(parseFloat(now).toFixed(size)));
+
   	        }
   	    });
   	});
   })
 }
+
+
+
+
+
 
 startCounter();
 
@@ -187,6 +189,7 @@ function launchWidthBullets() {
 
       theseBullets.map(function(innerIndex,innerElement) {
         $(innerElement).css('min-width', biggestWidth)
+        $($(innerElement).parent()).css('grid-template-columns', biggestWidth + 'px auto')
       })
     }
   })
@@ -196,25 +199,6 @@ $(window).on('load', launchWidthBullets);
 $(window).on('resize', launchWidthBullets);
 
 
-
-// function launchAnimationBullets() {
-//
-//   $('.content-block').map(function(index,element) {
-//
-//     if (($(element).find('.large-text-value').length > 0) && ($(element).find('.bullet-image').length > 0)) {
-//       var theseBullets = $(element).find('.bullet-image')
-//
-//       theseBullets.map(function(innerIndex,innerElement,container,ratio) {
-//         var thisCounter = $(innerElement).find('.bullet-image');
-//         var thisCounterVal = $(innerElement).find('.bullet-image .large-text-value');
-//         animateCounters(innerElement);
-//
-//       });
-//     }
-//   })
-// }
-//
-// $(window).on('load', launchAnimationBullets);
 
 
 

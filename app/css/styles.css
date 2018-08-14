@@ -108,9 +108,10 @@ h4,
 .cipher-logo {
   position: absolute;
   margin-left: 30px;
-  top: 20px;
+  top: 24px;
+  background-repeat: no-repeat;
   height: 40px;
-  width: 40px;
+  width: 200px;
   animation: slidedown 2s, fadein 5s; }
   @media all and (min-width: 520px) {
     .cipher-logo {
@@ -649,7 +650,7 @@ span.footer-text {
   .page-wrapper.gradient-bg a {
     color: #fff; }
   .page-wrapper.gradient-bg .cipher-logo {
-    background-image: url("https://cipherhealth.com/wp-content/uploads/2017/03/cipherlogo.svg"); }
+    background-image: url("https://cipherhealth.com/wp-content/uploads/2018/03/cipherlogo_website_wt.svg"); }
   .page-wrapper.gradient-bg .page-container {
     background-image: url("https://cipherhealth.com/wp-content/uploads/2018/02/bg.svg");
     background-size: cover; }
@@ -703,7 +704,7 @@ span.footer-text {
   .page-wrapper.white-bg a {
     color: #f79420; }
   .page-wrapper.white-bg .cipher-logo {
-    background-image: url("https://cipherhealth.com/wp-content/uploads/2018/02/cipherlogo_cfoam.svg"); }
+    background-image: url("https://cipherhealth.com/wp-content/uploads/2018/03/cipherlogo_website.svg"); }
   .page-wrapper.white-bg .page-container h1,
   .page-wrapper.white-bg .page-container h2,
   .page-wrapper.white-bg .page-container h3,

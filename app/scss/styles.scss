@@ -135,9 +135,10 @@ h4,
 .cipher-logo {
   position: absolute;
   margin-left: 30px;
-  top: 20px;
+  top: 24px;
+  background-repeat: no-repeat;
   height: 40px;
-  width: 40px;
+  width: 200px;
   animation: slidedown 2s, fadein 5s;
 
   @media all and (min-width: 520px) {
@@ -883,7 +884,7 @@ span.footer-text {
   }
 
   .cipher-logo {
-    background-image: url('https://cipherhealth.com/wp-content/uploads/2017/03/cipherlogo.svg');
+    background-image: url('https://cipherhealth.com/wp-content/uploads/2018/03/cipherlogo_website_wt.svg');
   }
 
   .page-container {
@@ -988,7 +989,7 @@ span.footer-text {
   }
 
   .cipher-logo {
-    background-image: url('https://cipherhealth.com/wp-content/uploads/2018/02/cipherlogo_cfoam.svg');
+    background-image: url('https://cipherhealth.com/wp-content/uploads/2018/03/cipherlogo_website.svg');
   }
 
   .page-container h1,
