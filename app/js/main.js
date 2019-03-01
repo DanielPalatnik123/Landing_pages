@@ -78,24 +78,49 @@ if ($('.wrap-around-image-container').length > 0) {
   $(window).on('resize', wrapImageHeight);
 }
 
+function topLargeTextPosition() {
+  var thisValue = $('#title .large-text-value');
+  var valueWidth = thisValue[0].clientWidth;
+  var containerWidth = $('.content-section')[0].clientWidth - 25;
+  if (valueWidth > containerWidth) {
+    thisValue.css({
+     'position' : 'relative',
+     'display' : 'none'
+    })
+  }
+}
+
+$(window).on('load', topLargeTextPosition);
+
+
 function largeTextFontSize(element,container,ratio,max) {
-  var thisValue = $(element).find('.large-text-value')
-  var thisText = $(element).find('.large-text-text')
   var thisElement = $(element)
+  var thisValue = thisElement.find('.large-text-value')
+  var thisText = thisElement.find('.large-text-text')
   var thisValueFontSize = parseInt(window.getComputedStyle(thisValue[0]).getPropertyValue("font-size"))
-  var valueWidth = thisValue.width()
-  var containerWidth = $(container).width()
-  var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/ratio
+
+  var valueWidth = thisValue[0].clientWidth
+  var containerWidth = $(container)[0].clientWidth - 25
+  var topRatio = containerWidth/valueWidth
+  var firstBlockMargin = topRatio * 25
+
+  if (thisElement.parent().hasClass('pardot-wrapper')) {
+    var resultingValueFontSize = (thisValueFontSize*topRatio)
+    $(thisText).css('transform', 'scale(' + topRatio +')')
+    $($('.whole-content-block')[0]).css('margin-top', firstBlockMargin +'px')
 
 
-  if (resultingValueFontSize >= max) {
-    $(thisText).css('font-size',max)
-    $(thisValue).css('font-size',max)
+  } else {
+    var resultingValueFontSize = ((containerWidth/valueWidth)*thisValueFontSize)/ratio
+    if (resultingValueFontSize >= max) {
+      $(thisText).css('font-size',max)
+      $(thisValue).css('font-size',max)
 
-  } else if (resultingValueFontSize < max){
-    $(thisText).css('font-size',resultingValueFontSize)
-    if ($(element)[0].className == 'bullet-image') {
-      $(thisValue).css('font-size',resultingValueFontSize)
+    } else if (resultingValueFontSize < max) {
+      $(thisText).css('font-size',resultingValueFontSize)
+      if ($(element)[0].className == 'bullet-image') {
+        $(thisValue).css('font-size',resultingValueFontSize)
+      }
     }
   }
 }

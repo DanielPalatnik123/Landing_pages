@@ -171,7 +171,7 @@ h4,
   min-height: 70vh;
   border-width: 2px;
   border-style: solid;
-  margin: 80px 30px 25px;
+  margin: 90px 30px 25px;
 
   @media all and (min-width: 520px) {
     padding: 50px;
@@ -352,7 +352,7 @@ h4,
   display: grid;
   position: absolute;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 70px;
   margin-bottom: 10px;
   text-align: center;
   z-index: 9;
@@ -383,7 +383,13 @@ h4,
 /*css specific to content types*/
 
 .large-text-value {
-  display: none;
+  visibility: hidden;
+  display: block;
+  position: absolute;
+}
+
+.large-text-text {
+  transform-origin: 0% 25%;
 }
 
 .offset-image-container {
@@ -395,8 +401,6 @@ h4,
   position: relative;
   margin-top: 35px;
   height: 100%;
-  // object-fit: cover;
-  // display: table;
   width: auto;
   background-position: center;
 
@@ -1161,7 +1165,7 @@ html[data-useragent*='rv:11.0'] {
   }
 
   .title-block {
-    margin: 60px 0;
+    margin: 70px 0;
 
     @media all and (min-width: 520px) {
       margin: 46px 0;
@@ -1302,22 +1306,6 @@ html[data-useragent*='rv:11.0'] {
     .offset-image-container {
       max-width: 65%;
     }
-
-    // .offset-image-container {
-    //   max-width: 85%;
-    //
-    //   @media all and (min-width: 768px) {
-    //     max-width: 65%;
-    //   }
-    //
-    //   @media all and (min-width: 768px) and (max-width: 990px) {
-    //     max-width: 85%;
-    //   }
-    //
-    //   @media all and (min-width: 991px) {
-    //     max-width: 65%;
-    //   }
-    // }
   }
 
   .offset-image-container {
@@ -1412,4 +1400,19 @@ html[data-useragent*='rv:11.0'] {
       }
     }
   }
+}
+
+.form.form p.pd-select label::after {
+  content: '';
+display: block;
+pointer-events: none;
+background-repeat: no-repeat;
+background-position: right center;
+background-image: url("https://cipherhealth.com/wp-content/uploads/2017/04/arrow_down.svg");
+width: 50px;
+height: 50px;
+position: absolute;
+right: 0;
+top: 25px;
+bottom: auto;
 }

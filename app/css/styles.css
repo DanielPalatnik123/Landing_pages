@@ -139,7 +139,7 @@ h4,
   min-height: 70vh;
   border-width: 2px;
   border-style: solid;
-  margin: 80px 30px 25px; }
+  margin: 90px 30px 25px; }
   @media all and (min-width: 520px) {
     .outline-container {
       padding: 50px;
@@ -284,7 +284,7 @@ h4,
   display: grid;
   position: absolute;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 70px;
   margin-bottom: 10px;
   text-align: center;
   z-index: 9; }
@@ -306,7 +306,12 @@ h4,
 
 /*css specific to content types*/
 .large-text-value {
-  display: none; }
+  visibility: hidden;
+  display: block;
+  position: absolute; }
+
+.large-text-text {
+  transform-origin: 0% 25%; }
 
 .offset-image-container {
   grid-area: sideImage;
@@ -821,7 +826,7 @@ html[data-useragent*='rv:11.0'] .col-60-40 .full-width-image img {
 
 html[data-useragent*='MSIE 10.0'] .title-block,
 html[data-useragent*='rv:11.0'] .title-block {
-  margin: 60px 0; }
+  margin: 70px 0; }
   @media all and (min-width: 520px) {
     html[data-useragent*='MSIE 10.0'] .title-block,
     html[data-useragent*='rv:11.0'] .title-block {
@@ -984,3 +989,17 @@ html[data-useragent*='rv:11.0'] .page-wrapper.gradient-bg .title-block .title-ba
     .page-wrapper.noGrid .bullets-stats .bullet-list li .bullet-text,
     .page-wrapper.noGrid .bullets-stats-bgimage .bullet-list li .bullet-text {
       max-width: 68%; } }
+
+.form.form p.pd-select label::after {
+  content: '';
+  display: block;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("https://cipherhealth.com/wp-content/uploads/2017/04/arrow_down.svg");
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  bottom: auto; }
