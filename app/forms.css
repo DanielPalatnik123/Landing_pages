@@ -142,14 +142,12 @@
         height: 50px;
         position: absolute;
         right: 0;
-        top: 25px;
-        bottom: auto;
+        bottom: 5px;
     }
 
     @media all and (min-width: 768px) {
         form.form p.pd-select::before {
             margin-top: 26px;
-            top: 0;
         }
     }
 
